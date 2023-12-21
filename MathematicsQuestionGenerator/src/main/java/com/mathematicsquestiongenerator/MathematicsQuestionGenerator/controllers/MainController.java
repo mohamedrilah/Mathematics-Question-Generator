@@ -14,4 +14,9 @@ public class MainController {
         return "signin";
     }
 
+    @GetMapping({"/aboutus"})
+    public String aboutus() {
+        return "aboutus";
+    }
+
 }

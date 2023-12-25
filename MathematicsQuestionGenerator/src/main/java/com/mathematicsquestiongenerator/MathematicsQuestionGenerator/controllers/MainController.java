@@ -9,9 +9,10 @@ public class MainController {
     public String homepage() {
         return "homepage";
     }
-    @GetMapping({"/signin"})
-    public String signin() {
-        return "signin";
+
+    @GetMapping({"explore"})
+    public String explore() {
+        return "explore";
     }
 
     @GetMapping({"/aboutus"})
@@ -19,4 +20,13 @@ public class MainController {
         return "aboutus";
     }
 
+    @GetMapping({"/signin"})
+    public String signin() {
+        return "signin";
+    }
+
+    @GetMapping({"/signup"})
+    public String signup() {
+        return "signup";
+    }
 }

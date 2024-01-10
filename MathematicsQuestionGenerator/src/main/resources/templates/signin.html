@@ -10,29 +10,36 @@
             <li><a th:href="@{/homepage}"> Home </a></li>
             <li><a th:href="@{/explore}"> Explore </a></li>
             <li><a th:href="@{/aboutus}"> About Us </a></li>
-            <li><a th:href="@{/signin}"> Sign In </a></li>
+            <li><a th:href="@{/login}"> Sign In </a></li>
         </ul>
 
         <div class="content">
             <h1> Login Page </h1>
 
-            <div class="signin_form">
-                <label> Email Address </label>
-                <br>
-                <input type="email" name="userEmail" required>
+            <form th:action="@{loginUser}" method="post">
 
-                <br><br>
+                <div class="signin_form">
+                    <label> Username </label>
+                    <br>
+                    <input type="username" name="loginUsername" required>
 
-                <label> Password </label>
-                <br>
-                <input type="password" name="userPassword" required>
+                    <br><br>
 
+                    <label> Password </label>
+                    <br>
+                    <input type="password" name="loginPassword" required>
 
-            </div>
+                    <br><br>
+                    <input class="submit" type="submit" name="submit" value="Login">
+                    <input type="hidden" name="submitted" value="true">
+
+                </div>
+
+            </form>
 
             <p>
                 Do not have an account with us,
-                <a th:href="@{/signup}"> sign up! </a>
+                <a th:href="@{/register}"> Sign up! </a>
             </p>
 
         </div>

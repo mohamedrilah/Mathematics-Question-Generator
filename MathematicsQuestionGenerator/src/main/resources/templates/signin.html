@@ -16,18 +16,18 @@
         <div class="content">
             <h1> Login Page </h1>
 
-            <form th:action="@{loginUser}" method="post">
+            <form th:action="@{/login}" method="post">
 
                 <div class="signin_form">
                     <label> Username </label>
                     <br>
-                    <input type="username" name="loginUsername" required>
+                    <input type="username" name="username" required>
 
                     <br><br>
 
                     <label> Password </label>
                     <br>
-                    <input type="password" name="loginPassword" required>
+                    <input type="password" name="password" required>
 
                     <br><br>
                     <input class="submit" type="submit" name="submit" value="Login">

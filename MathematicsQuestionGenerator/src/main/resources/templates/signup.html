@@ -33,7 +33,7 @@
 
                     <label> Username </label>
                     <br>
-                    <input type="username" th:field="*{username}" name="username" required>
+                    <input type="text" th:field="*{username}" name="username" required>
 
                     <br><br>
 
@@ -46,6 +46,11 @@
                     <input type="hidden" name="submitted" value="true">
 
                 </div>
+
+                <p>
+                    Already have an account with us,
+                    <a th:href="@{/login}"> Sign in! </a>
+                </p>
 
             </form>
 

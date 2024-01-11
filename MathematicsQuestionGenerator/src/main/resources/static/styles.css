@@ -1,24 +1,25 @@
 body {
-    margin: 0;
     font-family: "Roboto", "Arial", "sans-serif";
 }
 
 ul {
     list-style-type: none;
-    width: 10%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     background-color: #F1F1F1;
-    position : fixed;
-    height: 100%;
-    overflow: auto;
+}
+
+li {
+    float: left;
 }
 
 li a {
-    display:block;
-    padding: 10px 12px;
-    text-decoration: none;
+    display: block;
     color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 li a:hover {
@@ -26,8 +27,4 @@ li a:hover {
     color: #FFFFFF;
 }
 
-.content {
-    margin-left:10%;
-    padding:1px 16px;
-    height:100%;
-}
+

@@ -17,6 +17,11 @@
             </li>
             <li>
                 <div sec:authorize="isAuthenticated()">
+                    <a th:href="@{/myaccount}"> My Account </a>
+                </div>
+            </li>
+            <li>
+                <div sec:authorize="isAuthenticated()">
                     <form th:action="@{/logout}" method="post">
                         <input class="user_logout" type="submit" value="Logout" />
                     </form>

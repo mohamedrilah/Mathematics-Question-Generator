@@ -1,8 +1,11 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controllers;
 
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.CustomUserDetails;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.User;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.UserRepository;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,9 @@ public class MainController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
 
     @GetMapping({"/", "/homepage"})
     public String homepage() {
@@ -52,6 +58,17 @@ public class MainController {
         userRepository.save(user);
 
         return "signin";
+    }
+
+    @GetMapping("/myaccount")
+    public String myaccount(Model model) {
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        String username = userDetails.getUsername();
+
+        model.addAttribute("users", customUserDetailsService.loadUserByUsername(username));
+
+        return "myaccount";
     }
 
 }

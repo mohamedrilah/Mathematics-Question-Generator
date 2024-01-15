@@ -7,6 +7,13 @@
     </head>
     <body>
         <ul>
+            <li>
+                <div sec:authorize="isAuthenticated()">
+                    <div sec:authorize="hasAnyAuthority('Admin')">
+                        <a th:href="@{/adminhomepage}"> Admin Panel </a>
+                    </div>
+                </div>
+            </li>
             <li><a th:href="@{/homepage}"> Home </a></li>
             <li><a th:href="@{/explore}"> Explore </a></li>
             <li><a th:href="@{/aboutus}"> About Us </a></li>

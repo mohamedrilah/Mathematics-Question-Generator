@@ -14,33 +14,32 @@
         </ul>
 
         <div class="content">
-            <h1> Login Page </h1>
 
-            <form th:action="@{/login}" method="post">
+            <div class="signin_form">
 
-                <div class="signin_form">
+                <h1> Login Page </h1>
+
+                <form th:action="@{/login}" method="post">
+
                     <label> Username </label>
-                    <br>
                     <input type="text" name="username" required>
 
                     <br><br>
 
                     <label> Password </label>
-                    <br>
                     <input type="password" name="password" required>
 
                     <br><br>
                     <input class="submit" type="submit" name="submit" value="Login">
                     <input type="hidden" name="submitted" value="true">
 
-                </div>
+                </form>
 
-            </form>
+                <p>
+                    Do not have an account with us, <a th:href="@{/register}"> Sign up! </a>
+                </p>
 
-            <p>
-                Do not have an account with us,
-                <a th:href="@{/register}"> Sign up! </a>
-            </p>
+            </div>
 
         </div>
     </body>

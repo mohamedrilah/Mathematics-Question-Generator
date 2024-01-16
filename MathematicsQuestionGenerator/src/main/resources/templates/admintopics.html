@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/styles.css}" rel="stylesheet"/>
-    <title> Admin Homepage </title>
+    <title> Admin Topic View </title>
 </head>
 <body>
 <ul>
@@ -22,7 +22,23 @@
 </ul>
 
 <div class="content">
-    <h1> Admin Homepage </h1>
+
+    <div class="topics_form">
+
+        <h1> Topics from CS1MCP Module </h1>
+
+        <form th:action="@{/insertTopic}" method="post">
+            <label> Topic Name </label>
+            <br>
+
+            <input type="text" name="topicname" required>
+
+            <br><br>
+            <input class="submit" type="submit" name="submit" value="Insert">
+            <input type="hidden" name="submitted" value="true">
+
+        </form>
+    </div>
 
 </div>
 

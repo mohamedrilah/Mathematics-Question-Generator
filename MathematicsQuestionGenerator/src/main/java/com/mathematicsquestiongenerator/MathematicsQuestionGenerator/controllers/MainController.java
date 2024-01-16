@@ -66,7 +66,7 @@ public class MainController {
                 .getAuthentication().getPrincipal();
         String username = userDetails.getUsername();
 
-        model.addAttribute("users", customUserDetailsService.loadUserByUsername(username));
+        model.addAttribute("user", customUserDetailsService.loadUserByUsername(username));
 
         return "myaccount";
     }

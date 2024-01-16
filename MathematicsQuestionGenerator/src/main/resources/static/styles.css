@@ -8,7 +8,7 @@ body {
     padding-left: 10px;
 }
 
-ul {
+.navigation_bar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -16,11 +16,11 @@ ul {
     background-color: #F1F1F1;
 }
 
-li {
+.navigation_bar li {
     float: left;
 }
 
-li a {
+.navigation_bar li a {
     display: block;
     color: #000000;
     text-align: center;
@@ -28,7 +28,7 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+.navigation_bar li a:hover {
     background-color: #0047AB;
     color: #FFFFFF;
 }

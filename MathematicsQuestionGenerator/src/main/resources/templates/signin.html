@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <link th:href="@{/styles.css}" rel="stylesheet" />
-        <title> Account Login </title>
-    </head>
-    <body>
-        <ul>
-            <li><a th:href="@{/homepage}"> Home </a></li>
-            <li><a th:href="@{/explore}"> Explore </a></li>
-            <li><a th:href="@{/aboutus}"> About Us </a></li>
-            <li><a th:href="@{/login}"> Sign In </a></li>
-        </ul>
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles.css}" rel="stylesheet"/>
+    <title> Account Login </title>
+</head>
+<body>
+<ul>
+    <li><a th:href="@{/homepage}"> Home </a></li>
+    <li><a th:href="@{/explore}"> Explore </a></li>
+    <li><a th:href="@{/aboutus}"> About Us </a></li>
+    <li><a th:href="@{/login}"> Sign In </a></li>
+</ul>
 
-        <div class="content">
+<div class="content">
 
-            <div class="signin_form">
+    <div class="signin_form">
 
-                <h1> Login Page </h1>
+        <h1> Login Page </h1>
 
-                <form th:action="@{/login}" method="post">
+        <form th:action="@{/login}" method="post">
 
-                    <label> Username </label>
-                    <input type="text" name="username" required>
+            <label> Username </label>
+            <input type="text" name="username" required>
 
-                    <br><br>
+            <br><br>
 
-                    <label> Password </label>
-                    <input type="password" name="password" required>
+            <label> Password </label>
+            <input type="password" name="password" required>
 
-                    <br><br>
-                    <input class="submit" type="submit" name="submit" value="Login">
-                    <input type="hidden" name="submitted" value="true">
+            <br><br>
+            <input class="submit" type="submit" name="submit" value="Login">
+            <input type="hidden" name="submitted" value="true">
 
-                </form>
+        </form>
 
-                <p>
-                    Do not have an account with us, <a th:href="@{/register}"> Sign up! </a>
-                </p>
+        <p>
+            Do not have an account with us, <a th:href="@{/register}"> Sign up! </a>
+        </p>
 
-            </div>
+    </div>
 
-        </div>
-    </body>
+</div>
+</body>
 </html>

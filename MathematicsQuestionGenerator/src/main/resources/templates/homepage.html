@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymleaf.org/extras/spring-security">
-    <head>
-        <meta charset="UTF-8">
-        <link th:href="@{/styles.css}" rel="stylesheet" />
-        <title> Homepage </title>
-    </head>
-    <body>
-        <ul>
-            <li>
-                <div sec:authorize="isAuthenticated()">
-                    <div sec:authorize="hasAnyAuthority('Admin')">
-                        <a th:href="@{/adminhomepage}"> Admin Panel </a>
-                    </div>
-                </div>
-            </li>
-            <li><a th:href="@{/homepage}"> Home </a></li>
-            <li><a th:href="@{/explore}"> Explore </a></li>
-            <li><a th:href="@{/aboutus}"> About Us </a></li>
-            <li>
-                <div sec:authorize="isAnonymous()">
-                    <a th:href="@{/login}"> Sign In </a>
-                </div>
-            </li>
-            <li>
-                <div sec:authorize="isAuthenticated()">
-                    <a th:href="@{/myaccount}"> My Account </a>
-                </div>
-            </li>
-            <li>
-                <div class="logout_form">
-                    <div sec:authorize="isAuthenticated()">
-                        <form th:action="@{/logout}" method="post">
-                            <input class="user_logout" type="submit" value="Logout" />
-                        </form>
-                    </div>
-                </div>
-            </li>
-        </ul>
-
-        <div class="content">
-            <h1> Welcome to the Mathematics Question Generator Website </h1>
-
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles.css}" rel="stylesheet"/>
+    <title> Homepage </title>
+</head>
+<body>
+<ul>
+    <li>
+        <div sec:authorize="isAuthenticated()">
+            <div sec:authorize="hasAnyAuthority('Admin')">
+                <a th:href="@{/adminhomepage}"> Admin Panel </a>
+            </div>
         </div>
+    </li>
+    <li><a th:href="@{/homepage}"> Home </a></li>
+    <li><a th:href="@{/explore}"> Explore </a></li>
+    <li><a th:href="@{/aboutus}"> About Us </a></li>
+    <li>
+        <div sec:authorize="isAnonymous()">
+            <a th:href="@{/login}"> Sign In </a>
+        </div>
+    </li>
+    <li>
+        <div sec:authorize="isAuthenticated()">
+            <a th:href="@{/myaccount}"> My Account </a>
+        </div>
+    </li>
+    <li>
+        <div class="logout_form">
+            <div sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post">
+                    <input class="user_logout" type="submit" value="Logout"/>
+                </form>
+            </div>
+        </div>
+    </li>
+</ul>
 
-    </body>
+<div class="content">
+    <h1> Welcome to the Mathematics Question Generator Website </h1>
+
+</div>
+
+</body>
 </html>

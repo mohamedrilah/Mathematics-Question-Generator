@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <link th:href="@{/styles.css}" rel="stylesheet" />
-        <title> Account Creation </title>
-    </head>
-    <body>
-        <ul>
-            <li><a th:href="@{/homepage}"> Home </a></li>
-            <li><a th:href="@{/explore}"> Explore </a></li>
-            <li><a th:href="@{/aboutus}"> About Us </a></li>
-            <li><a th:href="@{/login}"> Sign In </a></li>
-        </ul>
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles.css}" rel="stylesheet"/>
+    <title> Account Creation </title>
+</head>
+<body>
+<ul>
+    <li><a th:href="@{/homepage}"> Home </a></li>
+    <li><a th:href="@{/explore}"> Explore </a></li>
+    <li><a th:href="@{/aboutus}"> About Us </a></li>
+    <li><a th:href="@{/login}"> Sign In </a></li>
+</ul>
 
-        <div class="content">
+<div class="content">
 
-            <div class="signup_form">
+    <div class="signup_form">
 
-                <h1> Sign Up Page </h1>
+        <h1> Sign Up Page </h1>
 
-                <form th:action="@{/registerUser}" th:object="${user}" method="post">
+        <form th:action="@{/registerUser}" th:object="${user}" method="post">
 
-                    <label> First Name </label>
-                    <br>
-                    <input type="text" th:field="*{firstname}" name="firstname" required>
+            <label> First Name </label>
+            <br>
+            <input type="text" th:field="*{firstname}" name="firstname" required>
 
-                    <br><br>
+            <br><br>
 
-                    <label> Surname </label>
-                    <br>
-                    <input type="text" th:field="*{surname}" name="surname" required>
+            <label> Surname </label>
+            <br>
+            <input type="text" th:field="*{surname}" name="surname" required>
 
-                    <br><br>
+            <br><br>
 
-                    <label> Username </label>
-                    <br>
-                    <input type="text" th:field="*{username}" name="username" required>
+            <label> Username </label>
+            <br>
+            <input type="text" th:field="*{username}" name="username" required>
 
-                    <br><br>
+            <br><br>
 
-                    <label> Password </label>
-                    <br>
-                    <input type="password" th:field="*{password}" name="password" required>
+            <label> Password </label>
+            <br>
+            <input type="password" th:field="*{password}" name="password" required>
 
-                    <br><br>
-                    <input class="submit" type="submit" name="submit" value="Sign Up">
-                    <input type="hidden" name="submitted" value="true">
+            <br><br>
+            <input class="submit" type="submit" name="submit" value="Sign Up">
+            <input type="hidden" name="submitted" value="true">
 
-                </form>
+        </form>
 
-                <p>
-                    Already have an account with us, <a th:href="@{/login}"> Sign in! </a>
-                </p>
+        <p>
+            Already have an account with us, <a th:href="@{/login}"> Sign in! </a>
+        </p>
 
-            </div>
+    </div>
 
-        </div>
-    </body>
+</div>
+</body>
 </html>

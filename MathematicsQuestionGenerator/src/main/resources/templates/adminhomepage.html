@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymleaf.org" xmlns:sec="http://www.thymleaf.org/extras/spring-security">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <link th:href="@{/styles.css}" rel="stylesheet" />
+    <link th:href="@{/styles.css}" rel="stylesheet"/>
     <title> Admin Homepage </title>
-  </head>
-  <body>
-    <ul>
-      <li><a th:href="@{/homepage}"> Home </a></li>
-      <li>
+</head>
+<body>
+<ul>
+    <li><a th:href="@{/homepage}"> Home </a></li>
+    <li>
         <div sec:authorize="isAuthenticated()">
-          <a th:href="@{/myaccount}"> My Account </a>
+            <a th:href="@{/myaccount}"> My Account </a>
         </div>
-      </li>
-      <li>
+    </li>
+    <li>
         <div class="logout_form">
-          <div sec:authorize="isAuthenticated()">
-            <form th:action="@{/logout}" method="post">
-              <input class="user_logout" type="submit" value="Logout" />
-            </form>
-          </div>
+            <div sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post">
+                    <input class="user_logout" type="submit" value="Logout"/>
+                </form>
+            </div>
         </div>
-      </li>
-    </ul>
+    </li>
+</ul>
 
-    <div class="content">
-      <h1> Admin Homepage </h1>
-    </div>
+<div class="content">
+    <h1> Admin Homepage </h1>
+</div>
 
-  </body>
+</body>
 </html>

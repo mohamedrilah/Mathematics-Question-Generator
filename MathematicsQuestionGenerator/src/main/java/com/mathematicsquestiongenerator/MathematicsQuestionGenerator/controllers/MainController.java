@@ -31,6 +31,11 @@ public class MainController {
         return "explore";
     }
 
+    @GetMapping({"/problems"})
+    public String problems() {
+        return "problems";
+    }
+
     @GetMapping({"/aboutus"})
     public String aboutus() {
         return "aboutus";

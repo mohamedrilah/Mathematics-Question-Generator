@@ -8,6 +8,18 @@ body {
     padding-left: 10px;
 }
 
+.welcome_message_title {
+    height: 200px;
+    width: 800px;
+    font-size: 40px;
+}
+
+.welcome_message_content {
+    height: 200px;
+    width: 800px;
+    font-size: 20px;
+}
+
 .navigation_bar ul {
     list-style-type: none;
     margin: 0;

@@ -2,6 +2,7 @@ package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controller
 
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.CustomUserDetails;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.User;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.TopicsRepository;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.UserRepository;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,17 @@ public class MainController {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
+    @Autowired
+    private TopicsRepository topicsRepository;
+
     @GetMapping({"/", "/homepage"})
     public String homepage() {
         return "homepage";
     }
 
     @GetMapping({"/explore"})
-    public String explore() {
+    public String explore(Model model) {
+        model.addAttribute("topics", topicsRepository.findAll());
         return "explore";
     }
 

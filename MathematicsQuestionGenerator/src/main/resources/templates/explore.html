@@ -37,6 +37,12 @@
 
 <div class="content">
     <h1> Explore content </h1>
+
+    <div th:each="topic: ${topics}">
+        <span th:text="${topic.topicname}"></span>
+    </div>
+
+
 </div>
 </body>
 </html>

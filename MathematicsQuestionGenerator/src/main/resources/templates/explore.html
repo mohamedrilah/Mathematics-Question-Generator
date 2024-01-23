@@ -38,8 +38,17 @@
 <div class="content">
     <h1> Explore content </h1>
 
-    <div th:each="topic: ${topics}">
-        <span th:text="${topic.topicname}"></span>
+    <div class="module_information">
+        <p>
+            The Mathematics for Computing Professionals website tests users based on the topics that are taught in the CS1MCP Module.
+            The list below shows the current selection of topics that are included in the CS1MCP Module Specification.
+        </p>
+    </div>
+
+    <div class="module_topics">
+        <div th:each="topic: ${topics}">
+                <span th:text="${topic.topicname}"></span>
+        </div>
     </div>
 
 

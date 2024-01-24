@@ -37,8 +37,14 @@ public class MainController {
     }
 
     @GetMapping({"/problems"})
-    public String problems() {
+    public String problems(Model model) {
+        model.addAttribute("topics", topicsRepository.findAll());
         return "problems";
+    }
+
+    @GetMapping({"/topicquiz"})
+    public String topicquiz() {
+        return "topicquiz";
     }
 
     @GetMapping({"/aboutus"})

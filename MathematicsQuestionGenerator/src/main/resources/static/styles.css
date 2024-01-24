@@ -1,8 +1,12 @@
+/* WEBPAGE BODY STYLING */
+
 body {
     font-family: "Roboto", "Arial", "sans-serif";
     margin: 0;
     padding: 0;
 }
+
+/* BASE PAGE STYLING */
 
 .content {
     padding-left: 10px;
@@ -108,3 +112,23 @@ body {
     background-color: #0047AB;
     color: #FFFFFF;
 }
+
+/* PROBLEMS PAGE STYLING */
+
+.individual_topic {
+    background-color: #F1F1F1;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 95%;
+}
+
+.individual_topic a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.individual_topic a:hover {
+    text-decoration: underline;
+}
+

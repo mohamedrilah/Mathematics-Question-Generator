@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/styles.css}" rel="stylesheet"/>
-    <title> Problems </title>
+    <title> Topic Quiz </title>
 </head>
 <body>
 
@@ -37,13 +37,7 @@
 </div>
 
 <div class="content">
-    <h1> Problems </h1>
-
-    <div class="quiz_topics">
-        <div class="individual_topic" th:each="topic: ${topics}">
-            <a th:href="@{/topicquiz}"> <span th:text="${topic.topicname}"></span> </a>
-        </div>
-    </div>
+    <h1> Topic Quiz </h1>
 
 </div>
 

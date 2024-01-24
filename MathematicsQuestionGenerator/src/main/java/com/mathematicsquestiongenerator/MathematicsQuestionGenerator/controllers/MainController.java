@@ -1,6 +1,7 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controllers;
 
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.CustomUserDetails;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomNumberGenerator;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.User;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.TopicsRepository;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.UserRepository;
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -43,7 +47,23 @@ public class MainController {
     }
 
     @GetMapping({"/topicquiz"})
-    public String topicquiz() {
+    public String topicquiz(Model model) {
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        List<Integer> numberList = new ArrayList<>();
+        int answer = 0;
+
+        for (int i = 0; i < 2; i++) {
+            int randomNumber = randomNumberGenerator.generateRandomNumber(10);
+
+            answer += randomNumber;
+
+            numberList.add(randomNumber);
+        }
+
+        numberList.add(answer);
+
+        model.addAttribute("randomValue", numberList);
+
         return "topicquiz";
     }
 

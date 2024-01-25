@@ -43,4 +43,16 @@ public class RandomQuestionGenerator {
 
         return questionWithAnswer;
     }
+
+    public String markAdditionQuestion(int enteredAnswer, int generatedAnswer) {
+        String response = "";
+
+        if (enteredAnswer == generatedAnswer) {
+            response += "Correct Answer";
+        } else {
+            response += "Incorrect Answer, the correct answer is: " + generatedAnswer;
+        }
+
+        return response;
+    }
 }

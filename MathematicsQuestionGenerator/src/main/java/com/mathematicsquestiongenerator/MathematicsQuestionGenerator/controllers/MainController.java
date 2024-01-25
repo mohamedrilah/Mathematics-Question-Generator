@@ -1,6 +1,7 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controllers;
 
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.CustomUserDetails;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.QuestionResponse;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomQuestionGenerator;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.User;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.TopicsRepository;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
@@ -29,9 +31,12 @@ public class MainController {
     @Autowired
     private TopicsRepository topicsRepository;
 
+    private RandomQuestionGenerator randomNumberGenerator = new RandomQuestionGenerator();
+
     private List<String> generatedQuestionList = new ArrayList<>();
 
     private int answer;
+    private int enteredAnswer;
 
     @GetMapping({"/", "/homepage"})
     public String homepage() {
@@ -52,7 +57,8 @@ public class MainController {
 
     @GetMapping({"/topicquiz"})
     public String topicquiz(Model model) {
-        RandomQuestionGenerator randomNumberGenerator = new RandomQuestionGenerator();
+
+        randomNumberGenerator = new RandomQuestionGenerator();
 
         generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15, 2);
 
@@ -68,6 +74,8 @@ public class MainController {
 
         generatedQuestionList.remove(answerFromList);
 
+        model.addAttribute("questionresponse", new QuestionResponse());
+
         model.addAttribute("randomValue",
                 generatedQuestionList);
 
@@ -75,11 +83,21 @@ public class MainController {
     }
 
     @PostMapping({"/checkanswer"})
-    public String checkanswer() {
+    public String checkanswer(@ModelAttribute QuestionResponse questionresponse) {
 
-        System.out.println("Correct answer: " + answer);
+        enteredAnswer = questionresponse.getEnteredSolution();
 
-        return "topicquiz";
+        String response = randomNumberGenerator.markAdditionQuestion(enteredAnswer, answer);
+
+        String output = "";
+
+        for (String s: generatedQuestionList) {
+            output += "Question: " + s + ": " + response;
+        }
+
+        System.out.println(output);
+
+        return "redirect:topicquiz";
     }
 
     @GetMapping({"/aboutus"})

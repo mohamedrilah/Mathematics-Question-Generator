@@ -40,10 +40,19 @@
     <h1> Topic Quiz </h1>
 
     <div class="question">
-        <p> Q. What is the following result of the calculation </p>
 
         <div th:each="int: ${randomValue}">
+
+            <p> Q. What is the following result of the calculation </p>
+
             <p th:text="${int}"></p>
+
+            <form th:action="@{/checkanswer}" method="post">
+                <input type="number" name="answer"/>
+                <input class="submit" type="submit" name="submit" value="Submit">
+                <input type="hidden" name="submitted" value="true">
+            </form>
+
         </div>
 
     </div>

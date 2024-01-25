@@ -1,7 +1,7 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controllers;
 
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.CustomUserDetails;
-import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomNumberGenerator;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomQuestionGenerator;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.User;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.TopicsRepository;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.UserRepository;
@@ -29,6 +29,10 @@ public class MainController {
     @Autowired
     private TopicsRepository topicsRepository;
 
+    private List<String> generatedQuestionList = new ArrayList<>();
+
+    private int answer;
+
     @GetMapping({"/", "/homepage"})
     public String homepage() {
         return "homepage";
@@ -48,21 +52,32 @@ public class MainController {
 
     @GetMapping({"/topicquiz"})
     public String topicquiz(Model model) {
-        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        List<Integer> numberList = new ArrayList<>();
-        int answer = 0;
+        RandomQuestionGenerator randomNumberGenerator = new RandomQuestionGenerator();
 
-        for (int i = 0; i < 2; i++) {
-            int randomNumber = randomNumberGenerator.generateRandomNumber(10);
+        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15, 2);
 
-            answer += randomNumber;
+        String answerFromList = "";
 
-            numberList.add(randomNumber);
+        for (String s: generatedQuestionList) {
+            if (s.contains("+")) {
+            } else {
+                answer = Integer.parseInt(s);
+                answerFromList = s;
+            }
         }
 
-        numberList.add(answer);
+        generatedQuestionList.remove(answerFromList);
 
-        model.addAttribute("randomValue", numberList);
+        model.addAttribute("randomValue",
+                generatedQuestionList);
+
+        return "topicquiz";
+    }
+
+    @PostMapping({"/checkanswer"})
+    public String checkanswer() {
+
+        System.out.println("Correct answer: " + answer);
 
         return "topicquiz";
     }
@@ -96,7 +111,7 @@ public class MainController {
         return "signin";
     }
 
-    @GetMapping("/myaccount")
+    @GetMapping({"/myaccount"})
     public String myaccount(Model model) {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal();

@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +36,9 @@ public class MainController {
 
     private List<String> generatedQuestionList = new ArrayList<>();
 
+    private List<String> generatedFeedbackList = new ArrayList<>();
+
     private int answer;
-    private int enteredAnswer;
 
     @GetMapping({"/", "/homepage"})
     public String homepage() {
@@ -79,13 +81,21 @@ public class MainController {
         model.addAttribute("randomValue",
                 generatedQuestionList);
 
+        if (generatedFeedbackList.isEmpty()) {
+
+        } else {
+            model.addAttribute("test", generatedFeedbackList.get(0));
+
+            generatedFeedbackList.remove(0);
+        }
+
         return "topicquiz";
     }
 
     @PostMapping({"/checkanswer"})
     public String checkanswer(@ModelAttribute QuestionResponse questionresponse) {
 
-        enteredAnswer = questionresponse.getEnteredSolution();
+        int enteredAnswer = questionresponse.getEnteredSolution();
 
         String response = randomNumberGenerator.markAdditionQuestion(enteredAnswer, answer);
 
@@ -95,7 +105,8 @@ public class MainController {
             output += "Question: " + s + ": " + response;
         }
 
-        System.out.println(output);
+        generatedFeedbackList.add(output);
+
 
         return "redirect:topicquiz";
     }

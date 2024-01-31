@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/styles.css}" rel="stylesheet"/>
-    <title> Problems </title>
+    <title> Generated Feedback </title>
 </head>
 <body>
 
@@ -37,13 +37,17 @@
 </div>
 
 <div class="content">
-    <h1> Problems </h1>
 
-    <div class="quiz_topics">
-        <div class="individual_topic" th:each="topic: ${topics}">
-            <a th:href="@{/quizselection}"> <span th:text="${topic.topicname}"></span> </a>
-        </div>
+    <div class="responsepopup">
+        <p th:text="${response}"> </p>
     </div>
+
+    <br>
+
+    <a th:href="@{/practicemode}"> Continue Practice </a>
+    <br><br>
+    <a th:href="@{/quizselection}"> Leave Practice </a>
+
 
 </div>
 

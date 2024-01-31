@@ -57,8 +57,13 @@ public class MainController {
         return "problems";
     }
 
-    @GetMapping({"/topicquiz"})
-    public String topicquiz(Model model) {
+    @GetMapping({"/quizselection"})
+    public String quizselection() {
+        return "quizselection";
+    }
+
+    @GetMapping({"/practicemode"})
+    public String practicemode(Model model) {
 
         randomNumberGenerator = new RandomQuestionGenerator();
 
@@ -81,15 +86,7 @@ public class MainController {
         model.addAttribute("randomValue",
                 generatedQuestionList);
 
-        if (generatedFeedbackList.isEmpty()) {
-
-        } else {
-            model.addAttribute("test", generatedFeedbackList.get(0));
-
-            generatedFeedbackList.remove(0);
-        }
-
-        return "topicquiz";
+        return "practicemode";
     }
 
     @PostMapping({"/checkanswer"})
@@ -99,16 +96,22 @@ public class MainController {
 
         String response = randomNumberGenerator.markAdditionQuestion(enteredAnswer, answer);
 
-        String output = "";
+        generatedFeedbackList.add(response);
+        System.out.println(generatedFeedbackList.get(0));
 
-        for (String s: generatedQuestionList) {
-            output += "Question: " + s + ": " + response;
+        return "redirect:/feedback";
+    }
+
+    @GetMapping({"/feedback"})
+    public String feedback(Model model) {
+
+        if (!generatedFeedbackList.isEmpty()) {
+            model.addAttribute("response", generatedFeedbackList.get(0));
+
+            generatedFeedbackList.remove(0);
         }
 
-        generatedFeedbackList.add(output);
-
-
-        return "redirect:topicquiz";
+        return "feedback";
     }
 
     @GetMapping({"/aboutus"})

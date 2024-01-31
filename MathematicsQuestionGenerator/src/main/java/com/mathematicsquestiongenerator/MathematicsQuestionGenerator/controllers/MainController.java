@@ -40,6 +40,8 @@ public class MainController {
 
     private int answer;
 
+    private int answerStreak;
+
     @GetMapping({"/", "/homepage"})
     public String homepage() {
         return "homepage";
@@ -59,6 +61,8 @@ public class MainController {
 
     @GetMapping({"/quizselection"})
     public String quizselection() {
+        answerStreak = 0;
+
         return "quizselection";
     }
 
@@ -96,8 +100,14 @@ public class MainController {
 
         String response = randomNumberGenerator.markAdditionQuestion(enteredAnswer, answer);
 
+        if (response.contains("Well Done")) {
+            answerStreak += 1;
+
+        } else if (response.contains("Unfortunately")) {
+            answerStreak = 0;
+        }
+
         generatedFeedbackList.add(response);
-        System.out.println(generatedFeedbackList.get(0));
 
         return "redirect:/feedback";
     }
@@ -109,6 +119,13 @@ public class MainController {
             model.addAttribute("response", generatedFeedbackList.get(0));
 
             generatedFeedbackList.remove(0);
+        }
+
+        if (answerStreak > 1) {
+            String streakmessage = "Congratulations, you have an answer streak of: "
+                    + answerStreak;
+
+            model.addAttribute("answerstreak", streakmessage);
         }
 
         return "feedback";

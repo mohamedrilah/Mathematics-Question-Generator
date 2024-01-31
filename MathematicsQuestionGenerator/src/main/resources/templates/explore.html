@@ -46,8 +46,8 @@
     </div>
 
     <div class="module_topics">
-        <div th:each="topic: ${topics}">
-                <span th:text="${topic.topicname}"></span>
+        <div class="topic_name" th:each="topic: ${topics}">
+            <span th:text="${topic.topicname}"></span>
         </div>
     </div>
 

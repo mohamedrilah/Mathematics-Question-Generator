@@ -48,9 +48,10 @@ public class RandomQuestionGenerator {
         String response = "";
 
         if (enteredAnswer == generatedAnswer) {
-            response += "Correct Answer";
+            response += "Well Done, the solution you submitted was the correct answer";
         } else {
-            response += "Incorrect Answer, the correct answer is: " + generatedAnswer;
+            response += "Unfortunately, the solution you submitted was an incorrect answer, the correct answer is: "
+                    + generatedAnswer;
         }
 
         return response;

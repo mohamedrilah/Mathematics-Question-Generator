@@ -39,14 +39,17 @@
 <div class="content">
 
     <div class="responsepopup">
+        <h1> Feedback </h1>
         <p th:text="${response}"> </p>
+
+        <p th:text="${answerstreak}"> </p>
+
+        <div class="practicebuttons">
+            <a th:href="@{/practicemode}"> Continue Practice </a>
+            <a th:href="@{/quizselection}"> Leave Practice </a>
+        </div>
+
     </div>
-
-    <br>
-
-    <a th:href="@{/practicemode}"> Continue Practice </a>
-    <br><br>
-    <a th:href="@{/quizselection}"> Leave Practice </a>
 
 
 </div>

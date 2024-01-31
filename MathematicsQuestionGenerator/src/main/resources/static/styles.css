@@ -77,7 +77,6 @@ body {
     width:40%;
     padding: 14px;
     background-color: #F1F1F1;
-    border-radius: 3%;
 }
 
 .signin_form input[type=text], .signin_form input[type=password], .signup_form input[type=text], .signup_form input[type=password], .topics_form input[type=text] {
@@ -114,7 +113,8 @@ body {
 }
 
 /* EXPLORE PAGE STYLING */
-.module_information{
+
+.module_information {
     width:800px;
 }
 
@@ -147,7 +147,7 @@ body {
 
 /* QUIZ SELECTION PAGE STYLING */
 
-.practicebutton {
+.testbutton, .practicebutton {
     background-color: #F1F1F1;
     padding: 10px;
     margin-top: 10px;
@@ -155,12 +155,12 @@ body {
     width: 60%;
 }
 
-.practicebutton a {
+.testbutton a, .practicebutton a {
     text-decoration: none;
     color: #000000;
 }
 
-.practicebutton a:hover {
+.testbutton a:hover, .practicebutton a:hover {
     text-decoration: underline;
 }
 
@@ -172,7 +172,6 @@ body {
     width:40%;
     padding: 14px;
     background-color: #F1F1F1;
-    border-radius: 3%;
 }
 
 .responsepopup h1{

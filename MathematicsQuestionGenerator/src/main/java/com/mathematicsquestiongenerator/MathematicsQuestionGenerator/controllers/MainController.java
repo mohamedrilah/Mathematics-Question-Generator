@@ -66,9 +66,14 @@ public class MainController {
         return "quizselection";
     }
 
+    @GetMapping({"/testmode"})
+    public String testmode(Model model) {
+
+        return "testmode";
+    }
+
     @GetMapping({"/practicemode"})
     public String practicemode(Model model) {
-
         randomNumberGenerator = new RandomQuestionGenerator();
 
         generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15, 2);
@@ -124,6 +129,11 @@ public class MainController {
         if (answerStreak > 1) {
             String streakmessage = "Congratulations, you have an answer streak of: "
                     + answerStreak;
+
+            model.addAttribute("answerstreak", streakmessage);
+
+        } else if (answerStreak == 0) {
+            String streakmessage = "Unfortunately, you have lost your answer streak";
 
             model.addAttribute("answerstreak", streakmessage);
         }

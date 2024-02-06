@@ -76,7 +76,7 @@ public class MainController {
     public String practicemode(Model model) {
         randomNumberGenerator = new RandomQuestionGenerator();
 
-        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15, 2);
+        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
 
         String answerFromList = "";
 
@@ -119,6 +119,8 @@ public class MainController {
 
     @GetMapping({"/feedback"})
     public String feedback(Model model) {
+
+        model.addAttribute("question", generatedQuestionList.get(0));
 
         if (!generatedFeedbackList.isEmpty()) {
             model.addAttribute("response", generatedFeedbackList.get(0));

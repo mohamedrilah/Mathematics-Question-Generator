@@ -40,7 +40,10 @@
 
     <div class="responsepopup">
         <h1> Feedback </h1>
-        <p th:text="${response}"> </p>
+
+        <p> Question: <span th:text="${question}"></span> </p>
+
+        <p> Feedback: <span th:text="${response}"></span> </p>
 
         <p th:text="${answerstreak}"> </p>
 

@@ -18,20 +18,20 @@ public class RandomQuestionGenerator {
         return randomNumber;
     }
 
-    public List<String> generateAdditionQuestion(int bound, int numQuestions) {
+    public List<String> generateAdditionQuestion(int bound) {
         String generatedQuestion = "";
         String generatedAnswer = "";
         int answer = 0;
         List<String> questionWithAnswer = new ArrayList<>();
 
-        for (int i = 0; i < numQuestions; i++) {
+        for (int i = 0; i < 2; i++) {
             int randomNumber = random.nextInt(bound);
 
             generatedQuestion += randomNumber;
 
             answer += randomNumber;
 
-            if (i < numQuestions - 1) {
+            if (i < 1) {
                 generatedQuestion += " + ";
             }
         }

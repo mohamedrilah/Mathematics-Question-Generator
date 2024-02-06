@@ -143,11 +143,6 @@ public class MainController {
         return "feedback";
     }
 
-    @GetMapping({"/aboutus"})
-    public String aboutus() {
-        return "aboutus";
-    }
-
     @GetMapping({"/login"})
     public String login() {
         return "signin";

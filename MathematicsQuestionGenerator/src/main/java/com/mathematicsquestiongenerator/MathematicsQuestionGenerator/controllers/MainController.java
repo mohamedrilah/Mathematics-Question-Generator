@@ -103,7 +103,7 @@ public class MainController {
 
         int enteredAnswer = questionresponse.getEnteredSolution();
 
-        String response = randomNumberGenerator.markAdditionQuestion(enteredAnswer, answer);
+        String response = randomNumberGenerator.markQuestion(enteredAnswer, answer);
 
         if (response.contains("Well Done")) {
             answerStreak += 1;

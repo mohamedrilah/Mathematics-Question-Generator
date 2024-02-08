@@ -44,7 +44,7 @@ public class RandomQuestionGenerator {
         return questionWithAnswer;
     }
 
-    public String markAdditionQuestion(int enteredAnswer, int generatedAnswer) {
+    public String markQuestion(int enteredAnswer, int generatedAnswer) {
         String response = "";
 
         if (enteredAnswer == generatedAnswer) {

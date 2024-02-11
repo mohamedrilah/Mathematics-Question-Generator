@@ -19,6 +19,7 @@ public class RandomQuestionGenerator {
     }
 
     public List<String> generateAdditionQuestion(int bound) {
+        String generatedWrittenQuestion = "Q. Calculate the sum of the following: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         int answer = 0;
@@ -38,11 +39,49 @@ public class RandomQuestionGenerator {
 
         generatedAnswer += answer;
 
+        questionWithAnswer.add(generatedWrittenQuestion);
         questionWithAnswer.add(generatedQuestion);
         questionWithAnswer.add(generatedAnswer);
 
         return questionWithAnswer;
     }
+
+    public List<String> generateBinaryQuestion() {
+        String generatedWrittenQuestion = "Q. Convert the following binary number into denary: ";
+        String generatedQuestion = "";
+        String generatedAnswer = "";
+
+        int answer = 0;
+
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            int randomNumber = random.nextInt(2);
+            generatedQuestion += randomNumber;
+        }
+
+        int head = 8;
+
+        for (int j = 0; j < generatedQuestion.length(); j++) {
+            String z = String.valueOf(generatedQuestion.charAt(j));
+
+            if (z.equals("1")) {
+                answer += head;
+                head = head / 2;
+            } else {
+                head = head / 2;
+            }
+        }
+
+        generatedAnswer += answer;
+
+        questionWithAnswer.add(generatedWrittenQuestion);
+        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(generatedAnswer);
+
+        return questionWithAnswer;
+    }
+
 
     public String markQuestion(int enteredAnswer, int generatedAnswer) {
         String response = "";

@@ -76,21 +76,21 @@ public class MainController {
     public String practicemode(Model model) {
         randomNumberGenerator = new RandomQuestionGenerator();
 
-        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
+//        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
+        generatedQuestionList = randomNumberGenerator.generateBinaryQuestion();
 
-        String answerFromList = "";
+        String writtenQuestion = generatedQuestionList.get(0);
 
-        for (String s: generatedQuestionList) {
-            if (s.contains("+")) {
-            } else {
-                answer = Integer.parseInt(s);
-                answerFromList = s;
-            }
-        }
+        generatedQuestionList.remove(0);
 
-        generatedQuestionList.remove(answerFromList);
+        answer = Integer.parseInt(generatedQuestionList.get(1));
+
+        generatedQuestionList.remove(1);
 
         model.addAttribute("questionresponse", new QuestionResponse());
+
+        model.addAttribute("writtenQuestion",
+                writtenQuestion);
 
         model.addAttribute("randomValue",
                 generatedQuestionList);

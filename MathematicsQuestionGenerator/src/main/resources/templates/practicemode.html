@@ -42,7 +42,7 @@
 
         <div th:each="question: ${randomValue}">
 
-            <p> Q. What is the following result of the calculation </p>
+            <p th:text="${writtenQuestion}"></p>
 
             <p th:text="${question}"></p>
 

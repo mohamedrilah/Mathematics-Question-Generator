@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +76,7 @@ public class MainController {
         randomNumberGenerator = new RandomQuestionGenerator();
 
 //        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
-        generatedQuestionList = randomNumberGenerator.generateBinaryQuestion();
+        generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
 
         String writtenQuestion = generatedQuestionList.get(0);
 

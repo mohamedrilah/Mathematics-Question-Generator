@@ -46,21 +46,19 @@ public class RandomQuestionGenerator {
         return questionWithAnswer;
     }
 
-    public List<String> generateBinaryQuestion() {
+    public List<String> generateBinaryToDenaryQuestion() {
         String generatedWrittenQuestion = "Q. Convert the following binary number into denary: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
-
-        int answer = 0;
-
         List<String> questionWithAnswer = new ArrayList<>();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 8; i++) {
             int randomNumber = random.nextInt(2);
             generatedQuestion += randomNumber;
         }
 
-        int head = 8;
+        int answer = 0;
+        int head = 128;
 
         for (int j = 0; j < generatedQuestion.length(); j++) {
             String z = String.valueOf(generatedQuestion.charAt(j));

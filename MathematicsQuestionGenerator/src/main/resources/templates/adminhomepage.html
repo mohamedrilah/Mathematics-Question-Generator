@@ -11,7 +11,6 @@
     <ul>
         <li><a th:href="@{/homepage}"> Exit Admin Panel </a></li>
         <li><a th:href="@{/adminhomepage}"> Admin Homepage </a></li>
-        <li><a th:href="@{/admintopics}"> Topic View </a></li>
         <li>
             <div class="logout_form">
                 <div sec:authorize="isAuthenticated()">
@@ -26,6 +25,58 @@
 
 <div class="content">
     <h1> Admin Homepage </h1>
+
+    <div class="admin_module_table">
+        <p> Topic List</p>
+        <br>
+        <a th:href="@{/admintopics}"> Add New Topic </a>
+
+        <table>
+            <tr>
+                <th> Topic Name </th>
+                <th> Edit Topic </th>
+                <th> Delete Topic </th>
+            </tr>
+
+            <div class="admin_topic_list" th:each="topic: ${topics}">
+                <tr>
+                    <td> <p th:text="${topic.topicname}"></p> </td>
+                    <td> <a th:href="@{/admintopics}"> Edit </a></td>
+                    <td> <a th:href="@{/admintopics}"> Delete </a> </td>
+                </tr>
+            </div>
+
+        </table>
+
+    </div>
+
+    <div class="admin_user_table">
+        <p> User List</p>
+        <br>
+        <table>
+            <tr>
+                <th> Firstname </th>
+                <th> Surname </th>
+                <th> Username </th>
+                <th> Role </th>
+                <th> Edit User </th>
+                <th> Delete User </th>
+            </tr>
+
+            <div class="admin_user_list" th:each="user: ${users}">
+                <tr>
+                    <td> <p th:text="${user.firstname}"></p> </td>
+                    <td> <p th:text="${user.surname}"></p> </td>
+                    <td> <p th:text="${user.username}"></p> </td>
+                    <td> <p th:text="${user.role}"></p> </td>
+                    <td> <a th:href="@{/adminhomepage}"> Edit </a></td>
+                    <td> <a th:href="@{/adminhomepage}"> Delete </a> </td>
+                </tr>
+            </div>
+
+        </table>
+
+    </div>
 
 </div>
 

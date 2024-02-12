@@ -76,7 +76,9 @@ public class MainController {
         randomNumberGenerator = new RandomQuestionGenerator();
 
 //        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
-        generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
+//        generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
+
+        generatedQuestionList = randomNumberGenerator.generateDenaryToBinaryQuestion();
 
         String writtenQuestion = generatedQuestionList.get(0);
 

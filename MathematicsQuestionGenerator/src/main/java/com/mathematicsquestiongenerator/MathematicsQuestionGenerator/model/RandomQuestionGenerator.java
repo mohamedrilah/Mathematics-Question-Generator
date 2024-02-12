@@ -80,6 +80,41 @@ public class RandomQuestionGenerator {
         return questionWithAnswer;
     }
 
+    public List<String> generateDenaryToBinaryQuestion() {
+        String generatedWrittenQuestion = "Q. Convert the following denary number into binary: ";
+        String generatedQuestion = "";
+        String generatedAnswer = "";
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        int randomNumber = random.nextInt(255);
+        generatedQuestion += randomNumber;
+
+        String answer = "";
+        int head = 128;
+
+        while (head >= 1) {
+            if (randomNumber < head) {
+                head = head / 2;
+                answer += "0";
+            } else if (randomNumber >= head) {
+                answer += "1";
+                randomNumber = randomNumber - head;
+                head = head / 2;
+            }
+        }
+
+        System.out.println(answer);
+
+        generatedAnswer += answer;
+
+        questionWithAnswer.add(generatedWrittenQuestion);
+        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(generatedAnswer);
+
+        return questionWithAnswer;
+    }
+
+
 
     public String markQuestion(int enteredAnswer, int generatedAnswer) {
         String response = "";

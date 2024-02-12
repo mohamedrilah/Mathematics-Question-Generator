@@ -42,7 +42,7 @@
                 <tr>
                     <td> <p th:text="${topic.topicname}"></p> </td>
                     <td> <a th:href="@{/admintopics}"> Edit </a></td>
-                    <td> <a th:href="@{/admintopics}"> Delete </a> </td>
+                    <td> <a th:href="@{/deleteTopic/{id} (id=${topic.id}) }"> Delete </a> </td>
                 </tr>
             </div>
 
@@ -70,7 +70,7 @@
                     <td> <p th:text="${user.username}"></p> </td>
                     <td> <p th:text="${user.role}"></p> </td>
                     <td> <a th:href="@{/adminhomepage}"> Edit </a></td>
-                    <td> <a th:href="@{/adminhomepage}"> Delete </a> </td>
+                    <td> <a th:href="@{/deleteUser/{id} (id=${user.id}) }"> Delete </a> </td>
                 </tr>
             </div>
 

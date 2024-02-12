@@ -40,7 +40,7 @@
 
     <div class="quiz_topics">
         <div class="individual_topic" th:each="topic: ${topics}">
-            <a th:href="@{/practicemode}"> <span th:text="${topic.topicname}"></span> </a>
+            <a th:href="@{/practicemode/{id} (id=${topic.id}) }"> <span th:text="${topic.topicname}"></span> </a>
         </div>
     </div>
 

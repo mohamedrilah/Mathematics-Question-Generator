@@ -75,10 +75,13 @@ public class MainController {
     public String practicemode(Model model) {
         randomNumberGenerator = new RandomQuestionGenerator();
 
-//        generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
-//        generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
+        int randomNumber = randomNumberGenerator.generateRandomNumber(2);
 
-        generatedQuestionList = randomNumberGenerator.generateDenaryToBinaryQuestion();
+        if (randomNumber == 0) {
+            generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
+        } else if (randomNumber == 1) {
+            generatedQuestionList = randomNumberGenerator.generateDenaryToBinaryQuestion();
+        }
 
         String writtenQuestion = generatedQuestionList.get(0);
 

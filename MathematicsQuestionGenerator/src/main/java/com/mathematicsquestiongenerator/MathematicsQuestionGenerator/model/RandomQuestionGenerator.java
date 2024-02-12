@@ -114,8 +114,6 @@ public class RandomQuestionGenerator {
         return questionWithAnswer;
     }
 
-
-
     public String markQuestion(int enteredAnswer, int generatedAnswer) {
         String response = "";
 

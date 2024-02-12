@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link th:href="@{/styles.css}" rel="stylesheet"/>
-    <title> Test Mode</title>
+    <title> Practice </title>
 </head>
 <body>
 
@@ -11,7 +11,7 @@
     <ul>
         <li><a th:href="@{/homepage}"> Home </a></li>
         <li><a th:href="@{/explore}"> Explore </a></li>
-        <li><a th:href="@{/problems}"> Problems </a></li>
+        <li><a th:href="@{/practice}"> Practice </a></li>
         <li>
             <div sec:authorize="isAnonymous()">
                 <a th:href="@{/login}"> Sign In </a>
@@ -36,7 +36,13 @@
 </div>
 
 <div class="content">
-    <h1> Test Mode </h1>
+    <h1> Practice </h1>
+
+    <div class="quiz_topics">
+        <div class="individual_topic" th:each="topic: ${topics}">
+            <a th:href="@{/practicemode}"> <span th:text="${topic.topicname}"></span> </a>
+        </div>
+    </div>
 
 </div>
 

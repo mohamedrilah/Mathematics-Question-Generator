@@ -52,23 +52,12 @@ public class MainController {
         return "explore";
     }
 
-    @GetMapping({"/problems"})
-    public String problems(Model model) {
+    @GetMapping({"/practice"})
+    public String practice(Model model) {
         model.addAttribute("topics", topicsRepository.findAll());
-        return "problems";
-    }
-
-    @GetMapping({"/quizselection"})
-    public String quizselection() {
         answerStreak = 0;
 
-        return "quizselection";
-    }
-
-    @GetMapping({"/testmode"})
-    public String testmode(Model model) {
-
-        return "testmode";
+        return "practice";
     }
 
     @GetMapping({"/practicemode"})

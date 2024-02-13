@@ -58,47 +58,54 @@ body {
     width: 100%;
 }
 
+/* PAGE TITLE STYLING */
+
+.title_section {
+    display: block;
+    padding-top: 80px;
+    padding-bottom: 25px;
+    overflow: hidden;
+    background-color: #1A2238;
+    border-radius: 0% 0% 5% 20%;
+}
+
+.title {
+    padding-top: 5px;
+    padding-left: 60px;
+    height: 50px;
+    width: 800px;
+}
+
+.title h1 {
+    font-size: 36px;
+    color: #FFFFFF
+}
+
+mark.orange {
+    background: #1A2238;;
+    color: #FF6A3D;
+}
+
 /* BASE PAGE STYLING */
 
 .content {
     padding-left: 60px;
-    padding-top: 80px;
+    padding-top: 15px;
     font-size: 18px;
-}
-
-.content h1 {
-    margin-top: 5px;
-    margin-bottom: 0px;
 }
 
 /* HOMEPAGE STYLING */
 
-.welcome_message_title {
-    margin-top: 20vh;
-    padding-top: 5px;
-    height: 200px;
-    width: 600px;
-    font-size: 40px;
-}
-
-mark.orange {
-    background: #FFFFFF;
-    color: #FF6A3D;
-}
-
-.welcome_message_content {
+.introductory_content {
     margin-top: 10px;
     height: auto;
     width: 600px;
 }
 
-.welcome_message_title h1, .welcome_message_content p {
+.introductory_content p {
     margin-top: 0px;
     margin-bottom: 0px;
-}
-
-.welcome_message_content p {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 /* FORMS STYLING */
@@ -216,3 +223,5 @@ mark.orange {
 .responsepopup a:hover {
     text-decoration: underline;
 }
+
+

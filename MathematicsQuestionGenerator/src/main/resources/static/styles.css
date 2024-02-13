@@ -9,6 +9,7 @@
 
 body {
     min-height: 100vh;
+    color: #000000;
 }
 
 /* NAVIGATION BAR STYLING */
@@ -23,7 +24,7 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: #0047AB;
+    background-color: #1A2238;
 }
 
 .logo {
@@ -48,8 +49,8 @@ body {
     top: 100%;
     left: 0;
     width: 0;
-    height: 2px;
-    background: #FFFFFF;
+    height: 3px;
+    background: #FF6A3D;
     transition: .3s;
 }
 
@@ -60,7 +61,7 @@ body {
 /* BASE PAGE STYLING */
 
 .content {
-    padding-left: 10px;
+    padding-left: 60px;
     padding-top: 80px;
     font-size: 18px;
 }
@@ -73,20 +74,31 @@ body {
 /* HOMEPAGE STYLING */
 
 .welcome_message_title {
+    margin-top: 20vh;
     padding-top: 5px;
-    height: 100px;
-    width: 800px;
+    height: 200px;
+    width: 600px;
     font-size: 40px;
 }
 
+mark.orange {
+    background: #FFFFFF;
+    color: #FF6A3D;
+}
+
 .welcome_message_content {
+    margin-top: 10px;
     height: auto;
-    width: 800px;
+    width: 600px;
 }
 
 .welcome_message_title h1, .welcome_message_content p {
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.welcome_message_content p {
+    padding-bottom: 5px;
 }
 
 /* FORMS STYLING */
@@ -128,7 +140,8 @@ body {
 }
 
 .topic_name {
-    background-color: #F1F1F1;
+    background-color: #00FFFF;
+    color: #000000;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -138,7 +151,8 @@ body {
 /* PROBLEMS PAGE STYLING */
 
 .individual_topic {
-    background-color: #F1F1F1;
+    background-color: #00FFFF;
+    color: #000000;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;

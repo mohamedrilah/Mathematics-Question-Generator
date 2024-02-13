@@ -17,16 +17,15 @@
         <a th:href="@{/practice}"> Practice </a>
 
         <a sec:authorize="isAnonymous()" th:href="@{/login}"> Sign In </a>
+        <a sec:authorize="isAnonymous()" th:href="@{/register}"> Register </a>
 
         <a sec:authorize="isAuthenticated()" th:href="@{/myaccount}"> My Account </a>
 
-        <div class="logout_form">
-            <div sec:authorize="isAuthenticated()">
-                <form th:action="@{/logout}" method="post">
-                    <input class="user_logout" type="submit" value="Logout"/>
-                </form>
-            </div>
-        </div>
+        <a sec:authorize="isAuthenticated()" href="javascript: document.logoutForm.submit()"> Logout</a>
+
+        <form name="logoutForm" th:action="@{/logout}" method="post">
+            <input class="user_logout" type="hidden" value="Logout"/>
+        </form>
 
     </nav>
 </header>

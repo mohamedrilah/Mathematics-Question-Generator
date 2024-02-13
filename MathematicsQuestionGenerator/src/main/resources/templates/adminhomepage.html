@@ -14,13 +14,11 @@
         <a th:href="@{/homepage}"> Exit Admin Panel </a>
         <a th:href="@{/adminhomepage}"> Admin Homepage </a>
 
-        <div class="logout_form">
-            <div sec:authorize="isAuthenticated()">
-                <form th:action="@{/logout}" method="post">
-                    <input class="user_logout" type="submit" value="Logout"/>
-                </form>
-            </div>
-        </div>
+        <a sec:authorize="isAuthenticated()" href="javascript: document.logoutForm.submit()"> Logout</a>
+
+        <form name="logoutForm" th:action="@{/logout}" method="post">
+            <input class="user_logout" type="hidden" value="Logout"/>
+        </form>
 
     </nav>
 </header>

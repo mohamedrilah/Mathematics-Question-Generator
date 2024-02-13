@@ -1,4 +1,5 @@
 /* WEBPAGE BODY STYLING */
+
 * {
     font-family: "Roboto", "Arial", "sans-serif";
     margin: 0;
@@ -10,37 +11,6 @@ body {
     min-height: 100vh;
 }
 
-/* BASE PAGE STYLING */
-
-.content {
-    padding-left: 10px;
-    font-size: 18px;
-}
-
-.content h1 {
-    margin-top: 5px;
-    margin-bottom: 0px;
-}
-
-/* HOMEPAGE STYLING */
-
-.welcome_message_title {
-    padding-top: 5px;
-    height: 200px;
-    width: 800px;
-    font-size: 40px;
-}
-
-.welcome_message_content {
-    height: auto;
-    width: 800px;
-}
-
-.welcome_message_title h1, .welcome_message_content p {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 /* NAVIGATION BAR STYLING */
 
 .header {
@@ -48,7 +18,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 100px;
+    padding: 20px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,6 +57,38 @@ body {
     width: 100%;
 }
 
+/* BASE PAGE STYLING */
+
+.content {
+    padding-left: 10px;
+    padding-top: 80px;
+    font-size: 18px;
+}
+
+.content h1 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+/* HOMEPAGE STYLING */
+
+.welcome_message_title {
+    padding-top: 5px;
+    height: 100px;
+    width: 800px;
+    font-size: 40px;
+}
+
+.welcome_message_content {
+    height: auto;
+    width: 800px;
+}
+
+.welcome_message_title h1, .welcome_message_content p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 /* FORMS STYLING */
 
 .signin_form h1, .signup_form h1, .topics_form h1 {
@@ -117,22 +119,6 @@ body {
     border: none;
     color: white;
     margin: auto;
-}
-
-/* LOGOUT NAVBAR BUTTON STYLING */
-
-.logout_form input[type=submit] {
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border: none;
-}
-
-.logout_form input[type=submit]:hover {
-    background-color: #0047AB;
-    color: #FFFFFF;
 }
 
 /* EXPLORE PAGE STYLING */
@@ -216,7 +202,3 @@ body {
 .responsepopup a:hover {
     text-decoration: underline;
 }
-
-
-
-

@@ -37,10 +37,27 @@
 
 <div class="content">
 
-    <div class="quiz_topics">
-        <div class="individual_topic" th:each="topic: ${topics}">
-            <a th:href="@{/practicemode/{name} (name=${topic.topicname}) }"> <span th:text="${topic.topicname}"></span> </a>
-        </div>
+    <div class="topic_list">
+
+        <table class="topic_table">
+            <thead>
+            <tr>
+                <th> Topic Name</th>
+                <th> Difficulty</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <div class="admin_topic_list" th:each="topic: ${topics}">
+                <tr>
+                    <td><a th:href="@{/practicemode/{name} (name=${topic.topicname}) }"> <span
+                            th:text="${topic.topicname}"></span> </a></td>
+                    <td><span th:text="${topic.difficulty}"></span></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+
     </div>
 
 </div>

@@ -43,6 +43,12 @@
         </h1>
     </div>
 
+    <div sec:authorize="isAuthenticated()">
+        <div sec:authorize="hasAnyAuthority('Admin')">
+            <a th:href="@{/adminhomepage}"> Admin Panel </a>
+        </div>
+    </div>
+
 </div>
 
 </body>

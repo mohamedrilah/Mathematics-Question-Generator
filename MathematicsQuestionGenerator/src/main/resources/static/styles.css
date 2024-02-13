@@ -146,52 +146,40 @@ mark.orange {
     width:800px;
 }
 
-.topic_name {
-    background-color: #00FFFF;
-    color: #000000;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.module_topics {
     width:800px;
-}
-
-/* PROBLEMS PAGE STYLING */
-
-.individual_topic {
-    background-color: #00FFFF;
-    color: #000000;
-    padding: 10px;
     margin-top: 10px;
-    margin-bottom: 10px;
-    width: 95%;
 }
 
-.individual_topic a {
-    text-decoration: none;
+.topic_name {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* TOPIC TABLE STYLING (PRACTICE PAGE & ADMIN HOMEPAGE) */
+
+.topic_table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 200px;
+}
+
+.topic_table thead tr {
+    background-color: #FF6A3D;
     color: #000000;
+    text-align: left;
 }
 
-.individual_topic a:hover {
-    text-decoration: underline;
+.topic_table th, .topic_table td {
+    padding: 12px 15px;
 }
 
-/* QUIZ SELECTION PAGE STYLING */
-
-.testbutton, .practicebutton {
-    background-color: #F1F1F1;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 60%;
+.topic_table tbody tr {
+    border-bottom: 1px solid #000000;
 }
 
-.testbutton a, .practicebutton a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.testbutton a:hover, .practicebutton a:hover {
-    text-decoration: underline;
+.topic_table tbody tr:last-of-type {
+    border-bottom: 2px solid #FF6A3D;
 }
 
 /* FEEDBACK PAGE STYLING */
@@ -224,4 +212,28 @@ mark.orange {
     text-decoration: underline;
 }
 
+/* ADMIN USER TABLE */
 
+.user_table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 200px;
+}
+
+.user_table thead tr {
+    background-color: #FF6A3D;
+    color: #000000;
+    text-align: left;
+}
+
+.user_table th, .user_table td {
+    padding: 12px 15px;
+}
+
+.user_table tbody tr {
+    border-bottom: 1px solid #000000;
+}
+
+.user_table tbody tr:last-of-type {
+    border-bottom: 2px solid #FF6A3D;
+}

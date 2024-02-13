@@ -25,7 +25,9 @@
 
 <div class="title_section">
     <div class="title">
-        <h1> Admin <mark class="orange"> homepage </mark> </h1>
+        <h1> Admin
+            <mark class="orange"> homepage</mark>
+        </h1>
     </div>
 </div>
 
@@ -36,21 +38,26 @@
         <br>
         <a th:href="@{/admintopics}"> Add New Topic </a>
 
-        <table>
+        <table class="topic_table">
+            <thead>
             <tr>
-                <th> Topic Name </th>
-                <th> Edit Topic </th>
-                <th> Delete Topic </th>
+                <th> Topic Name</th>
+                <th> Topic Difficulty</th>
+                <th> Edit Topic</th>
+                <th> Delete Topic</th>
             </tr>
+            </thead>
 
+            <tbody>
             <div class="admin_topic_list" th:each="topic: ${topics}">
                 <tr>
-                    <td> <p th:text="${topic.topicname}"></p> </td>
-                    <td> <a th:href="@{/admintopics}"> Edit </a></td>
-                    <td> <a th:href="@{/deleteTopic/{id} (id=${topic.id}) }"> Delete </a> </td>
+                    <td><p th:text="${topic.topicname}"></p></td>
+                    <td><p th:text="${topic.difficulty}"></p></td>
+                    <td><a th:href="@{/admintopics}"> Edit </a></td>
+                    <td><a th:href="@{/deleteTopic/{id} (id=${topic.id}) }"> Delete </a></td>
                 </tr>
             </div>
-
+            </tbody>
         </table>
 
     </div>
@@ -58,27 +65,31 @@
     <div class="admin_user_table">
         <p> User List</p>
         <br>
-        <table>
-            <tr>
-                <th> Firstname </th>
-                <th> Surname </th>
-                <th> Username </th>
-                <th> Role </th>
-                <th> Edit User </th>
-                <th> Delete User </th>
-            </tr>
 
-            <div class="admin_user_list" th:each="user: ${users}">
+        <table class="user_table">
+            <thead>
+            <tr>
+                <th> Firstname</th>
+                <th> Surname</th>
+                <th> Username</th>
+                <th> Role</th>
+                <th> Edit User</th>
+                <th> Delete User</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <div class="admin_topic_list" th:each="user: ${users}">
                 <tr>
-                    <td> <p th:text="${user.firstname}"></p> </td>
-                    <td> <p th:text="${user.surname}"></p> </td>
-                    <td> <p th:text="${user.username}"></p> </td>
-                    <td> <p th:text="${user.role}"></p> </td>
-                    <td> <a th:href="@{/adminhomepage}"> Edit </a></td>
-                    <td> <a th:href="@{/deleteUser/{id} (id=${user.id}) }"> Delete </a> </td>
+                    <td><p th:text="${user.firstname}"></p></td>
+                    <td><p th:text="${user.surname}"></p></td>
+                    <td><p th:text="${user.username}"></p></td>
+                    <td><p th:text="${user.role}"></p></td>
+                    <td><a th:href="@{/adminhomepage}"> Edit </a></td>
+                    <td><a th:href="@{/deleteUser/{id} (id=${user.id}) }"> Delete </a></td>
                 </tr>
             </div>
-
+            </tbody>
         </table>
 
     </div>

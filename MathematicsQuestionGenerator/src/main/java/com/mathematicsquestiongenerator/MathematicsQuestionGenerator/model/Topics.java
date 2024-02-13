@@ -12,6 +12,7 @@ public class Topics {
 
     @Column(name="Name")
     private String topicname;
+    private String difficulty;
 
     public int getId() {
         return id;
@@ -27,5 +28,13 @@ public class Topics {
 
     public void setTopicname(String topicname) {
         this.topicname = topicname;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 }

@@ -1,8 +1,6 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class RandomQuestionGenerator {
 
@@ -102,8 +100,6 @@ public class RandomQuestionGenerator {
                 head = head / 2;
             }
         }
-
-        System.out.println(answer);
 
         generatedAnswer += answer;
 

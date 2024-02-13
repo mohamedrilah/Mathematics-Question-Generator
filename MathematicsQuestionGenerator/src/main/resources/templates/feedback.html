@@ -47,7 +47,7 @@
         <p th:text="${answerstreak}"> </p>
 
         <div class="practicebuttons">
-            <a th:href="@{/practicemode/{id} (id=${topic.id})}"> Continue Practice </a>
+            <a th:href="@{/practicemode/{name} (name=${topic.topicname}) }"> Continue Practice </a>
             <a th:href="@{/practice}"> Leave Practice </a>
         </div>
 

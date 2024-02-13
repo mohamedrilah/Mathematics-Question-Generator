@@ -24,7 +24,7 @@ public class QuestionController {
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
     private int answerStreak;
-    private int topicid;
+    private String topicname;
 
     @GetMapping({"/practice"})
     public String practice(Model model) {
@@ -33,14 +33,12 @@ public class QuestionController {
         return "practice";
     }
 
-    @GetMapping({"/practicemode/{id}"})
-    public String practicemode(@PathVariable("id") int id, Model model) {
+    @GetMapping({"/practicemode/{name}"})
+    public String practicemode(@PathVariable("name") String name, Model model) {
 
-        Topics topic = topicsRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid id"));
+        Topics topic = topicsRepository.findTopicByTopicname(name);
 
-        String topicname = topic.getTopicname();
-        topicid = topic.getId();
+        topicname = topic.getTopicname();
 
         randomNumberGenerator = new RandomQuestionGenerator();
 
@@ -119,8 +117,7 @@ public class QuestionController {
             model.addAttribute("answerstreak", streakmessage);
         }
 
-        Topics topic = topicsRepository.findById(topicid)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid id"));
+        Topics topic = topicsRepository.findTopicByTopicname(topicname);
 
         model.addAttribute("topic", topic);
 

@@ -1,9 +1,13 @@
 /* WEBPAGE BODY STYLING */
-
-body {
+* {
     font-family: "Roboto", "Arial", "sans-serif";
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
 }
 
 /* BASE PAGE STYLING */
@@ -39,29 +43,48 @@ body {
 
 /* NAVIGATION BAR STYLING */
 
-.navigation_bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #F1F1F1;
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: #0047AB;
 }
 
-.navigation_bar li {
-    float: left;
-}
-
-.navigation_bar li a {
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 14px 16px;
+.logo {
+    font-size: 32px;
+    color: #FFFFFF;
+    font-weight: 700;
     text-decoration: none;
 }
 
-.navigation_bar li a:hover {
-    background-color: #0047AB;
+.navigation_bar a {
+    position: relative;
+    font-size: 18px;
     color: #FFFFFF;
+    font-weight: 500;
+    margin-left: 40px;
+    text-decoration: none;
+}
+
+.navigation_bar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FFFFFF;
+    transition: .3s;
+}
+
+.navigation_bar a:hover::before {
+    width: 100%;
 }
 
 /* FORMS STYLING */

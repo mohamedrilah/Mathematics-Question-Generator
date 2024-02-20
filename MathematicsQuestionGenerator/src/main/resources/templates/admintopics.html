@@ -38,14 +38,11 @@
         <p> Please use the input box below to enter topics from the CS1MCP Module </p>
 
         <form th:action="@{/insertTopic}" method="post">
-            <label> Topic Name </label>
-            <br>
 
-            <input type="text" name="topicname" required>
+            <input type="text" name="topicname" placeholder="Topic Name" required>
 
-            <input type="text" name="difficulty" required>
+            <input type="text" name="difficulty" placeholder="Difficulty" required>
 
-            <br><br>
             <input class="submit" type="submit" name="submit" value="Insert">
             <input type="hidden" name="submitted" value="true">
 

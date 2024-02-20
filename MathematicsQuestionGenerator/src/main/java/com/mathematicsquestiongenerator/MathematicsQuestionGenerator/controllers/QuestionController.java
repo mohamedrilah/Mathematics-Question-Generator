@@ -1,8 +1,6 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controllers;
 
-import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.QuestionResponse;
-import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomQuestionGenerator;
-import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.Topics;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.*;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.TopicsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +17,10 @@ import java.util.List;
 public class QuestionController {
     @Autowired
     private TopicsRepository topicsRepository;
-    private RandomQuestionGenerator randomNumberGenerator = new RandomQuestionGenerator();
+    private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private Question question = new Question();
+    private NumeralSystemsQuestions numeralSystemsQuestions = new NumeralSystemsQuestions();
+    private SetsQuestions setsQuestions = new SetsQuestions();
     private List<String> generatedQuestionList = new ArrayList<>();
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
@@ -40,28 +41,27 @@ public class QuestionController {
 
         topicname = topic.getTopicname();
 
-        randomNumberGenerator = new RandomQuestionGenerator();
+        randomNumberGenerator = new RandomNumberGenerator();
 
         if (topicname.contains("Numeral Systems")) {
             int randomNumber = randomNumberGenerator.generateRandomNumber(2);
 
             if (randomNumber == 0) {
-                generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
+                generatedQuestionList = numeralSystemsQuestions.generateBinaryToDenaryQuestion();
             } else if (randomNumber == 1) {
-                generatedQuestionList = randomNumberGenerator.generateDenaryToBinaryQuestion();
+                generatedQuestionList = numeralSystemsQuestions.generateDenaryToBinaryQuestion();
             }
 
         } else if (topicname.contains("Sets & Predicate")) {
             int randomNumber = randomNumberGenerator.generateRandomNumber(3);
 
             if (randomNumber == 0) {
-                generatedQuestionList = randomNumberGenerator.generateSetUnionQuestion();
+                generatedQuestionList = setsQuestions.generateSetUnionQuestion();
             } else if (randomNumber == 1) {
-                generatedQuestionList = randomNumberGenerator.generateSetIntersectQuestion();
+                generatedQuestionList = setsQuestions.generateSetIntersectQuestion();
             } else if (randomNumber == 2) {
-                generatedQuestionList = randomNumberGenerator.generateSetCardinalityQuestion();
+                generatedQuestionList = setsQuestions.generateSetCardinalityQuestion();
             }
-
         }
 
         String writtenQuestion = generatedQuestionList.get(0);
@@ -88,7 +88,7 @@ public class QuestionController {
 
         int enteredAnswer = questionresponse.getEnteredSolution();
 
-        String response = randomNumberGenerator.markQuestion(enteredAnswer, answer);
+        String response = question.markQuestion(enteredAnswer, answer);
 
         if (response.contains("Well Done")) {
             answerStreak += 1;

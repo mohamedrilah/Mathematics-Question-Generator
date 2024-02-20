@@ -42,9 +42,8 @@ public class QuestionController {
 
         randomNumberGenerator = new RandomQuestionGenerator();
 
-        int randomNumber = randomNumberGenerator.generateRandomNumber(2);
-
         if (topicname.contains("Numeral Systems")) {
+            int randomNumber = randomNumberGenerator.generateRandomNumber(2);
 
             if (randomNumber == 0) {
                 generatedQuestionList = randomNumberGenerator.generateBinaryToDenaryQuestion();
@@ -52,8 +51,17 @@ public class QuestionController {
                 generatedQuestionList = randomNumberGenerator.generateDenaryToBinaryQuestion();
             }
 
-        } else if (topicname.contains("Addition")) {
-            generatedQuestionList = randomNumberGenerator.generateAdditionQuestion(15);
+        } else if (topicname.contains("Sets & Predicate")) {
+            int randomNumber = randomNumberGenerator.generateRandomNumber(3);
+
+            if (randomNumber == 0) {
+                generatedQuestionList = randomNumberGenerator.generateSetUnionQuestion();
+            } else if (randomNumber == 1) {
+                generatedQuestionList = randomNumberGenerator.generateSetIntersectQuestion();
+            } else if (randomNumber == 2) {
+                generatedQuestionList = randomNumberGenerator.generateSetCardinalityQuestion();
+            }
+
         }
 
         String writtenQuestion = generatedQuestionList.get(0);

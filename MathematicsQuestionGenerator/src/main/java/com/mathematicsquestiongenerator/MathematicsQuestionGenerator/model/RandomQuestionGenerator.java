@@ -16,34 +16,6 @@ public class RandomQuestionGenerator {
         return randomNumber;
     }
 
-    public List<String> generateAdditionQuestion(int bound) {
-        String generatedWrittenQuestion = "Q. Calculate the sum of the following: ";
-        String generatedQuestion = "";
-        String generatedAnswer = "";
-        int answer = 0;
-        List<String> questionWithAnswer = new ArrayList<>();
-
-        for (int i = 0; i < 2; i++) {
-            int randomNumber = random.nextInt(bound);
-
-            generatedQuestion += randomNumber;
-
-            answer += randomNumber;
-
-            if (i < 1) {
-                generatedQuestion += " + ";
-            }
-        }
-
-        generatedAnswer += answer;
-
-        questionWithAnswer.add(generatedWrittenQuestion);
-        questionWithAnswer.add(generatedQuestion);
-        questionWithAnswer.add(generatedAnswer);
-
-        return questionWithAnswer;
-    }
-
     public List<String> generateBinaryToDenaryQuestion() {
         String generatedWrittenQuestion = "Q. Convert the following binary number into denary: ";
         String generatedQuestion = "";
@@ -109,6 +81,105 @@ public class RandomQuestionGenerator {
 
         return questionWithAnswer;
     }
+
+    public List<String> generateSetUnionQuestion() {
+        String generatedWrittenQuestion = "Q. What is the union of the following sets: ";
+        String generatedQuestion = "";
+        String generatedAnswer = "";
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        Set<Integer> setOne = new HashSet<>();
+        Set<Integer> setTwo = new HashSet<>();
+
+        for (int i = 0; i < 4; i++) {
+            int randomnumber = random.nextInt(10);
+            setOne.add(randomnumber);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            int randomnumber = random.nextInt(10);
+            setTwo.add(randomnumber);
+        }
+
+        generatedQuestion += setOne + " ∪ " + setTwo;
+
+        Set<Integer> unionSet = new HashSet<>(setOne);
+        unionSet.addAll(setTwo);
+
+        generatedAnswer += unionSet;
+        generatedAnswer = generatedAnswer.replaceAll("[^\\d]", "");
+
+        questionWithAnswer.add(generatedWrittenQuestion);
+        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(generatedAnswer);
+
+        return questionWithAnswer;
+    }
+
+    public List<String> generateSetIntersectQuestion() {
+        String generatedWrittenQuestion = "Q. What is the intersect of the following sets: ";
+        String generatedQuestion = "";
+        String generatedAnswer = "";
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        Set<Integer> setOne = new HashSet<>();
+        Set<Integer> setTwo = new HashSet<>();
+
+        for (int i = 0; i < 4; i++) {
+            int randomnumber = random.nextInt(50);
+            setOne.add(randomnumber);
+        }
+
+        for (int i = 0; i < 4; i++) {
+            int randomnumber = random.nextInt(50);
+            setTwo.add(randomnumber);
+        }
+
+        generatedQuestion += setOne + " ∩ " + setTwo;
+
+        Set<Integer> intersectSet = new HashSet<>(setOne);
+        intersectSet.retainAll(setTwo);
+
+        if (intersectSet.isEmpty()) {
+            generatedAnswer += "0";
+        } else {
+            generatedAnswer += intersectSet;
+            generatedAnswer = generatedAnswer.replaceAll("[^\\d]", "");
+        }
+
+        questionWithAnswer.add(generatedWrittenQuestion);
+        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(generatedAnswer);
+
+        return questionWithAnswer;
+    }
+
+    public List<String> generateSetCardinalityQuestion() {
+        String generatedWrittenQuestion = "Q. What is the cardinality of the following set: ";
+        String generatedQuestion = "";
+        String generatedAnswer = "";
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        Set<Integer> setOne = new HashSet<>();
+
+        for (int i = 0; i < 4; i++) {
+            int randomnumber = random.nextInt(50);
+            setOne.add(randomnumber);
+        }
+
+        generatedQuestion += setOne;
+
+        int setSize = setOne.size();
+
+        generatedAnswer += setSize;
+
+        questionWithAnswer.add(generatedWrittenQuestion);
+        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(generatedAnswer);
+
+        return questionWithAnswer;
+    }
+
 
     public String markQuestion(int enteredAnswer, int generatedAnswer) {
         String response = "";

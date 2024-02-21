@@ -21,6 +21,8 @@ public class QuestionController {
     private Question question = new Question();
     private NumeralSystemsQuestions numeralSystemsQuestions = new NumeralSystemsQuestions();
     private SetsQuestions setsQuestions = new SetsQuestions();
+    private MatricesAndVectorsQuestions matricesAndVectorsQuestions = new MatricesAndVectorsQuestions();
+
     private List<String> generatedQuestionList = new ArrayList<>();
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
@@ -62,6 +64,8 @@ public class QuestionController {
             } else if (randomNumber == 2) {
                 generatedQuestionList = setsQuestions.generateSetCardinalityQuestion();
             }
+        } else if (topicname.contains("Matrices & Vectors")) {
+            generatedQuestionList = matricesAndVectorsQuestions.generateMatrixMultiplicationQuestion();
         }
 
         String writtenQuestion = generatedQuestionList.get(0);

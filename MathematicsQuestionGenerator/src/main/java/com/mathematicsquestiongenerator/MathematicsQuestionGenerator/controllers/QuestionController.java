@@ -67,21 +67,14 @@ public class QuestionController {
             generatedQuestionList = matricesAndVectorsQuestions.generateMatrixMultiplicationQuestion();
         }
 
-        String writtenQuestion = generatedQuestionList.get(0);
-
-        generatedQuestionList.remove(0);
+        String question = generatedQuestionList.get(0);
 
         answer = Integer.parseInt(generatedQuestionList.get(1));
-
-        generatedQuestionList.remove(1);
 
         model.addAttribute("questionresponse", new QuestionResponse());
 
         model.addAttribute("writtenQuestion",
-                writtenQuestion);
-
-        model.addAttribute("randomValue",
-                generatedQuestionList);
+                question);
 
         return "practicemode";
     }

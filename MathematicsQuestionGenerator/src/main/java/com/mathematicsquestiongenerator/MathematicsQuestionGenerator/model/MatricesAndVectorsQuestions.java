@@ -9,13 +9,13 @@ public class MatricesAndVectorsQuestions {
             = new RandomNumberGenerator();
 
     public List<String> generateMatrixMultiplicationQuestion() {
-        int scalarMultiplier = randomNumberGenerator.generateRandomNumber(10);
-
-        String generatedWrittenQuestion = "What is the new matrix with " + scalarMultiplier + " : ";
-        String generatedQuestion = "";
-        String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();
 
+        String writtenQuestion;
+        String generatedQuestion = "";
+        String generatedAnswer = "";
+
+        int scalarMultiplier = randomNumberGenerator.generateRandomNumber(10);
         int[] matrix = new int[4];
 
         for (int i = 0; i < matrix.length; i++) {
@@ -25,16 +25,15 @@ public class MatricesAndVectorsQuestions {
 
         generatedQuestion += Arrays.toString(matrix);
 
+        writtenQuestion = "Let the Matrix M = " + generatedQuestion + ". Calculate the Matrix " + scalarMultiplier + "M";
+
         for (int i = 0; i < matrix.length; i++) {
             int num = matrix[i];
             int calc = num * scalarMultiplier;
             generatedAnswer += calc;
         }
 
-        System.out.println(generatedAnswer);
-
-        questionWithAnswer.add(generatedWrittenQuestion);
-        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(writtenQuestion);
         questionWithAnswer.add(generatedAnswer);
 
         return questionWithAnswer;

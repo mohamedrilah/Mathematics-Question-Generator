@@ -41,12 +41,9 @@
 
         <p> <b> Question </b> </p>
 
-        <div th:each="question: ${randomValue}">
+        <div th:each="question: ${writtenQuestion}">
 
-            <p>
-                <span th:text="${writtenQuestion}"> </span>
-                <span th:text="${question}"> </span>
-            </p>
+            <p> <span th:text="${question}"> </span> </p>
 
             <form th:action="@{/checkanswer}" th:object="${questionresponse}" method="post">
                 <input type="text" name="answer" th:field="*{enteredSolution}" placeholder="Answer"/>

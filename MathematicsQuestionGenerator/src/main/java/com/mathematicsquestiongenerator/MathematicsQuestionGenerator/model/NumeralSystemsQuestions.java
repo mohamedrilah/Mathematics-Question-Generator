@@ -8,10 +8,11 @@ public class NumeralSystemsQuestions {
             = new RandomNumberGenerator();
 
     public List<String> generateBinaryToDenaryQuestion() {
-        String generatedWrittenQuestion = "Convert the following binary number into denary: ";
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        String writtenQuestion;
         String generatedQuestion = "";
         String generatedAnswer = "";
-        List<String> questionWithAnswer = new ArrayList<>();
 
         for (int i = 0; i < 8; i++) {
             int randomNumber = randomNumberGenerator.generateRandomNumber(2);
@@ -32,20 +33,21 @@ public class NumeralSystemsQuestions {
             }
         }
 
+        writtenQuestion = "Convert the following Binary number " + generatedQuestion + " into denary";
         generatedAnswer += answer;
 
-        questionWithAnswer.add(generatedWrittenQuestion);
-        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(writtenQuestion);
         questionWithAnswer.add(generatedAnswer);
 
         return questionWithAnswer;
     }
 
     public List<String> generateDenaryToBinaryQuestion() {
-        String generatedWrittenQuestion = "Convert the following denary number into binary: ";
+        List<String> questionWithAnswer = new ArrayList<>();
+
+        String writtenQuestion;
         String generatedQuestion = "";
         String generatedAnswer = "";
-        List<String> questionWithAnswer = new ArrayList<>();
 
         int randomNumber = randomNumberGenerator.generateRandomNumber(255);
         generatedQuestion += randomNumber;
@@ -64,10 +66,10 @@ public class NumeralSystemsQuestions {
             }
         }
 
+        writtenQuestion = "Conver the following Denary value " + generatedQuestion + " into Binary";
         generatedAnswer += answer;
 
-        questionWithAnswer.add(generatedWrittenQuestion);
-        questionWithAnswer.add(generatedQuestion);
+        questionWithAnswer.add(writtenQuestion);
         questionWithAnswer.add(generatedAnswer);
 
         return questionWithAnswer;

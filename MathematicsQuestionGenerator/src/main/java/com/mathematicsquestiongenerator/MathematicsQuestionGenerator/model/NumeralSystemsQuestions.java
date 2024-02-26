@@ -8,7 +8,7 @@ public class NumeralSystemsQuestions {
             = new RandomNumberGenerator();
 
     public List<String> generateBinaryToDenaryQuestion() {
-        String generatedWrittenQuestion = "Q. Convert the following binary number into denary: ";
+        String generatedWrittenQuestion = "Convert the following binary number into denary: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();
@@ -42,7 +42,7 @@ public class NumeralSystemsQuestions {
     }
 
     public List<String> generateDenaryToBinaryQuestion() {
-        String generatedWrittenQuestion = "Q. Convert the following denary number into binary: ";
+        String generatedWrittenQuestion = "Convert the following denary number into binary: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();

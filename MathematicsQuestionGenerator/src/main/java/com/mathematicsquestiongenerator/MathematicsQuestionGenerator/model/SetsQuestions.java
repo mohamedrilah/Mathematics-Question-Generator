@@ -10,7 +10,7 @@ public class SetsQuestions {
             = new RandomNumberGenerator();
 
     public List<String> generateSetUnionQuestion() {
-        String generatedWrittenQuestion = "Q. What is the union of the following sets: ";
+        String generatedWrittenQuestion = "What is the union of the following sets: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();
@@ -44,7 +44,7 @@ public class SetsQuestions {
     }
 
     public List<String> generateSetIntersectQuestion() {
-        String generatedWrittenQuestion = "Q. What is the intersect of the following sets: ";
+        String generatedWrittenQuestion = "What is the intersect of the following sets: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();
@@ -82,7 +82,7 @@ public class SetsQuestions {
     }
 
     public List<String> generateSetCardinalityQuestion() {
-        String generatedWrittenQuestion = "Q. What is the cardinality of the following set: ";
+        String generatedWrittenQuestion = "What is the cardinality of the following set: ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();

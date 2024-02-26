@@ -11,7 +11,7 @@ public class MatricesAndVectorsQuestions {
     public List<String> generateMatrixMultiplicationQuestion() {
         int scalarMultiplier = randomNumberGenerator.generateRandomNumber(10);
 
-        String generatedWrittenQuestion = "Q. What is the new matrix with " + scalarMultiplier + " : ";
+        String generatedWrittenQuestion = "What is the new matrix with " + scalarMultiplier + " : ";
         String generatedQuestion = "";
         String generatedAnswer = "";
         List<String> questionWithAnswer = new ArrayList<>();

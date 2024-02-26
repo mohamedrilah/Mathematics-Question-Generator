@@ -88,6 +88,10 @@ public class SetsQuestions {
 
         int randomSetSize = randomNumberGenerator.generateRandomNumber(10);
 
+        if (randomSetSize == 0) {
+            randomSetSize += 1;
+        }
+
         for (int i = 0; i < randomSetSize; i++) {
             int randomnumber = randomNumberGenerator.generateRandomNumber(50);
             setOne.add(randomnumber);

@@ -40,14 +40,14 @@
     <div class="question">
 
         <div th:each="question: ${randomValue}">
-
-            <p th:text="${writtenQuestion}"></p>
-
-            <p th:text="${question}"></p>
+            <p>
+                <span th:text="${writtenQuestion}"> </span>
+                <span th:text="${question}"> </span>
+            </p>
 
             <form th:action="@{/checkanswer}" th:object="${questionresponse}" method="post">
-                <input type="text" name="answer" th:field="*{enteredSolution}"/>
-                <input class="submit" onclick="responseFunction()" type="submit" name="submit" value="Submit">
+                <input type="text" name="answer" th:field="*{enteredSolution}" placeholder="Answer"/>
+                <input class="submit" onclick="responseFunction()" type="submit" name="submit" value="Check Answer">
                 <input type="hidden" name="submitted" value="true">
             </form>
 

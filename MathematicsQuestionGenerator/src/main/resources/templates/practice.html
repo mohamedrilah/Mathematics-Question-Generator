@@ -48,7 +48,7 @@
             </thead>
 
             <tbody>
-            <div class="admin_topic_list" th:each="topic: ${topics}">
+            <div th:each="topic: ${topics}">
                 <tr>
                     <td><a th:href="@{/practicemode/{name} (name=${topic.topicname}) }"> <span
                             th:text="${topic.topicname}"></span> </a></td>

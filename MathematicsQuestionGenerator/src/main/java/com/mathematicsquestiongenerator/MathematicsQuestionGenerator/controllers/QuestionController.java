@@ -22,7 +22,6 @@ public class QuestionController {
     private NumeralSystemsQuestions numeralSystemsQuestions = new NumeralSystemsQuestions();
     private SetsQuestions setsQuestions = new SetsQuestions();
     private MatricesAndVectorsQuestions matricesAndVectorsQuestions = new MatricesAndVectorsQuestions();
-
     private List<String> generatedQuestionList = new ArrayList<>();
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
@@ -90,7 +89,17 @@ public class QuestionController {
     @PostMapping({"/checkanswer"})
     public String checkanswer(@ModelAttribute QuestionResponse questionresponse) {
 
-        int enteredAnswer = questionresponse.getEnteredSolution();
+        String answerString = questionresponse.getEnteredSolution();
+
+        answerString = answerString.replaceAll("[^\\d]", "");
+
+        int enteredAnswer;
+
+        if (answerString.isEmpty()) {
+            enteredAnswer = 0;
+        } else {
+            enteredAnswer = Integer.parseInt(answerString);
+        }
 
         String response = question.markQuestion(enteredAnswer, answer);
 

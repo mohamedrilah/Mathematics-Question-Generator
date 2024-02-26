@@ -2,13 +2,13 @@ package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model;
 
 public class QuestionResponse {
 
-    private int enteredSolution;
+    private String enteredSolution;
 
-    public int getEnteredSolution() {
+    public String getEnteredSolution() {
         return enteredSolution;
     }
 
-    public void setEnteredSolution(int enteredSolution) {
+    public void setEnteredSolution(String enteredSolution) {
         this.enteredSolution = enteredSolution;
     }
 }

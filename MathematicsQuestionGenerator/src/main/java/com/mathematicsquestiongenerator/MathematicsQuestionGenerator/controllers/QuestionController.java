@@ -22,6 +22,7 @@ public class QuestionController {
     private NumeralSystemsQuestions numeralSystemsQuestions = new NumeralSystemsQuestions();
     private SetsQuestions setsQuestions = new SetsQuestions();
     private MatricesAndVectorsQuestions matricesAndVectorsQuestions = new MatricesAndVectorsQuestions();
+    private ElementaryFunctionQuestions elementaryFunctionQuestions = new ElementaryFunctionQuestions();
     private List<String> generatedQuestionList = new ArrayList<>();
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
@@ -63,6 +64,10 @@ public class QuestionController {
             } else if (randomNumber == 2) {
                 generatedQuestionList = setsQuestions.generateSetCardinalityQuestion();
             }
+
+        } else if (topicname.contains("Elementary Functions")) {
+            generatedQuestionList = elementaryFunctionQuestions.generateLinearFunctionQuestion();
+
         } else if (topicname.contains("Matrices & Vectors")) {
             generatedQuestionList = matricesAndVectorsQuestions.generateMatrixMultiplicationQuestion();
         }

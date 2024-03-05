@@ -1,6 +1,6 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model;
 
-public class Question {
+public class QuestionMarker {
     public String markQuestion(int enteredAnswer, int generatedAnswer) {
         String response = "";
 

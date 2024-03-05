@@ -1,18 +1,21 @@
-package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model;
+package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.questionfactory;
+
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElementaryFunctionQuestions {
-
-    private RandomNumberGenerator randomNumberGenerator
-            = new RandomNumberGenerator();
-
-    public List<String> generateLinearFunctionQuestion() {
+public class ElementaryFunctionQuestions implements Question {
+    @Override
+    public List<String> displayQuestion() {
         List<String> questionWithAnswer = new ArrayList<>();
-
         String writtenQuestion;
-        String generatedAnswer = "";
+        String generatedAnswer;
+
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+        writtenQuestion = "";
+        generatedAnswer = "";
 
         int randomSlope = randomNumberGenerator.generateRandomNumber(10);
         int randomIntercept = randomNumberGenerator.generateRandomNumber(20);
@@ -28,5 +31,4 @@ public class ElementaryFunctionQuestions {
 
         return questionWithAnswer;
     }
-
 }

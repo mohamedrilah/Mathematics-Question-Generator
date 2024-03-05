@@ -1,19 +1,23 @@
-package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model;
+package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.questionfactory;
+
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MatricesAndVectorsQuestions {
-    private RandomNumberGenerator randomNumberGenerator
-            = new RandomNumberGenerator();
-
-    public List<String> generateMatrixMultiplicationQuestion() {
+public class MatricesVectorQuestions implements Question {
+    @Override
+    public List<String> displayQuestion() {
         List<String> questionWithAnswer = new ArrayList<>();
-
         String writtenQuestion;
-        String generatedQuestion = "";
-        String generatedAnswer = "";
+        String generatedQuestion;
+        String generatedAnswer;
+
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+        generatedQuestion = "";
+        generatedAnswer = "";
 
         int scalarMultiplier = randomNumberGenerator.generateRandomNumber(10);
         int[] matrix = new int[4];

@@ -1,6 +1,7 @@
 package com.mathematicsquestiongenerator.MathematicsQuestionGenerator.controllers;
 
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.model.*;
+import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.questionfactory.*;
 import com.mathematicsquestiongenerator.MathematicsQuestionGenerator.repository.TopicsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,7 @@ import java.util.List;
 public class QuestionController {
     @Autowired
     private TopicsRepository topicsRepository;
-    private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-    private Question question = new Question();
-    private NumeralSystemsQuestions numeralSystemsQuestions = new NumeralSystemsQuestions();
-    private SetsQuestions setsQuestions = new SetsQuestions();
-    private MatricesAndVectorsQuestions matricesAndVectorsQuestions = new MatricesAndVectorsQuestions();
-    private ElementaryFunctionQuestions elementaryFunctionQuestions = new ElementaryFunctionQuestions();
+    private QuestionMarker questionMarker = new QuestionMarker();
     private List<String> generatedQuestionList = new ArrayList<>();
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
@@ -40,36 +36,27 @@ public class QuestionController {
     public String practicemode(@PathVariable("name") String name, Model model) {
 
         Topics topic = topicsRepository.findTopicByTopicname(name);
-
         topicname = topic.getTopicname();
 
-        randomNumberGenerator = new RandomNumberGenerator();
-
         if (topicname.contains("Numeral Systems")) {
-            int randomNumber = randomNumberGenerator.generateRandomNumber(2);
-
-            if (randomNumber == 0) {
-                generatedQuestionList = numeralSystemsQuestions.generateBinaryToDenaryQuestion();
-            } else if (randomNumber == 1) {
-                generatedQuestionList = numeralSystemsQuestions.generateDenaryToBinaryQuestion();
-            }
+            NumeralSystemsFactory numeralSystemsFactory = new NumeralSystemsFactory();
+            Question numeralSystemsQuestion = numeralSystemsFactory.createQuestion();
+            generatedQuestionList = numeralSystemsQuestion.displayQuestion();
 
         } else if (topicname.contains("Sets & Predicate")) {
-            int randomNumber = randomNumberGenerator.generateRandomNumber(3);
-
-            if (randomNumber == 0) {
-                generatedQuestionList = setsQuestions.generateSetUnionQuestion();
-            } else if (randomNumber == 1) {
-                generatedQuestionList = setsQuestions.generateSetIntersectQuestion();
-            } else if (randomNumber == 2) {
-                generatedQuestionList = setsQuestions.generateSetCardinalityQuestion();
-            }
+            SetsPredicateFactory setsPredicateFactory = new SetsPredicateFactory();
+            Question setsPredicateQuestion = setsPredicateFactory.createQuestion();
+            generatedQuestionList = setsPredicateQuestion.displayQuestion();
 
         } else if (topicname.contains("Elementary Functions")) {
-            generatedQuestionList = elementaryFunctionQuestions.generateLinearFunctionQuestion();
+            ElementaryFunctionFactory elementaryFunctionFactory = new ElementaryFunctionFactory();
+            Question elementaryFunctionQuestion = elementaryFunctionFactory.createQuestion();
+            generatedQuestionList = elementaryFunctionQuestion.displayQuestion();
 
         } else if (topicname.contains("Matrices & Vectors")) {
-            generatedQuestionList = matricesAndVectorsQuestions.generateMatrixMultiplicationQuestion();
+            MatricesVectorFactory matricesVectorFactory = new MatricesVectorFactory();
+            Question matricesVectorQuestion = matricesVectorFactory.createQuestion();
+            generatedQuestionList = matricesVectorQuestion.displayQuestion();
         }
 
         String question = generatedQuestionList.get(0);
@@ -99,7 +86,7 @@ public class QuestionController {
             enteredAnswer = Integer.parseInt(answerString);
         }
 
-        String response = question.markQuestion(enteredAnswer, answer);
+        String response = questionMarker.markQuestion(enteredAnswer, answer);
 
         if (response.contains("Well Done")) {
             answerStreak += 1;

@@ -183,7 +183,6 @@ mark.orange {
     width: 200px;
 }
 
-
 /* FEEDBACK PAGE STYLING */
 
 .detailedresponse {
@@ -208,6 +207,19 @@ mark.orange {
 }
 
 .detailedresponse a:hover {
+    text-decoration: underline;
+}
+.adminlink {
+    margin-top: 10px;
+}
+
+.adminlink a {
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}
+
+.adminlink a:hover {
     text-decoration: underline;
 }
 

@@ -43,9 +43,15 @@
         </h1>
     </div>
 
-    <div sec:authorize="isAuthenticated()">
-        <div sec:authorize="hasAnyAuthority('Admin')">
-            <a th:href="@{/adminhomepage}"> Admin Panel </a>
+
+    <div class="adminlink">
+        <div sec:authorize="isAuthenticated()">
+            <div sec:authorize="hasAnyAuthority('Admin')">
+                <p>
+                    As you have Admin Privileges,
+                    <a th:href="@{/adminhomepage}"> Access Admin Panel </a>
+                </p>
+            </div>
         </div>
     </div>
 

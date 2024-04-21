@@ -43,7 +43,6 @@
         </h1>
     </div>
 
-
     <div class="adminlink">
         <div sec:authorize="isAuthenticated()">
             <div sec:authorize="hasAnyAuthority('Admin')">
@@ -54,6 +53,27 @@
             </div>
         </div>
     </div>
+
+    <table class="user_table">
+        <thead>
+            <tr>
+                <th> Firstname</th>
+                <th> Surname</th>
+                <th> Username</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <div class="admin_topic_list" th:each="user: ${user}">
+            <tr>
+                    <td><p th:text="${user.firstname}"></p></td>
+                    <td><p th:text="${user.surname}"></p></td>
+                    <td><p th:text="${user.username}"></p></td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+
 
 </div>
 

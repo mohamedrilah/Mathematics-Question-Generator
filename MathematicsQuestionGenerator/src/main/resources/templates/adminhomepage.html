@@ -43,7 +43,6 @@
             <tr>
                 <th> Topic Name</th>
                 <th> Topic Difficulty</th>
-                <th> Edit Topic</th>
                 <th> Delete Topic</th>
             </tr>
             </thead>
@@ -53,7 +52,6 @@
                 <tr>
                     <td><p th:text="${topic.topicname}"></p></td>
                     <td><p th:text="${topic.difficulty}"></p></td>
-                    <td><a th:href="@{/admintopics}"> Edit </a></td>
                     <td><a th:href="@{/deleteTopic/{id} (id=${topic.id}) }"> Delete </a></td>
                 </tr>
             </div>
@@ -73,7 +71,6 @@
                 <th> Surname</th>
                 <th> Username</th>
                 <th> Role</th>
-                <th> Edit User</th>
                 <th> Delete User</th>
             </tr>
             </thead>
@@ -85,7 +82,6 @@
                     <td><p th:text="${user.surname}"></p></td>
                     <td><p th:text="${user.username}"></p></td>
                     <td><p th:text="${user.role}"></p></td>
-                    <td><a th:href="@{/adminhomepage}"> Edit </a></td>
                     <td><a th:href="@{/deleteUser/{id} (id=${user.id}) }"> Delete </a></td>
                 </tr>
             </div>

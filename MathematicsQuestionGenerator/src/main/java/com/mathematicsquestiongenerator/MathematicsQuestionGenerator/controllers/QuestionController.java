@@ -22,6 +22,7 @@ public class QuestionController {
     private List<String> generatedQuestionList = new ArrayList<>();
     private List<String> generatedFeedbackList = new ArrayList<>();
     private int answer;
+    private String formattedAnswer;
     private int answerStreak;
     private String topicname;
 
@@ -63,6 +64,8 @@ public class QuestionController {
 
         answer = Integer.parseInt(generatedQuestionList.get(1));
 
+        formattedAnswer = generatedQuestionList.get(2);
+
         model.addAttribute("questionresponse", new QuestionResponse());
 
         model.addAttribute("writtenQuestion",
@@ -86,7 +89,7 @@ public class QuestionController {
             enteredAnswer = Integer.parseInt(answerString);
         }
 
-        String response = questionMarker.markQuestion(enteredAnswer, answer);
+        String response = questionMarker.markQuestion(enteredAnswer, answer, formattedAnswer);
 
         if (response.contains("Well Done")) {
             answerStreak += 1;

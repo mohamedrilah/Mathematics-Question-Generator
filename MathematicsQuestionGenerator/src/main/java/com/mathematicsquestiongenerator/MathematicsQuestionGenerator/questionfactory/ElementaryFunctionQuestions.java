@@ -11,11 +11,13 @@ public class ElementaryFunctionQuestions implements Question {
         List<String> questionWithAnswer = new ArrayList<>();
         String writtenQuestion;
         String generatedAnswer;
+        String formattedAnswer;
 
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
         writtenQuestion = "";
         generatedAnswer = "";
+        formattedAnswer = "";
 
         int randomSlope = randomNumberGenerator.generateRandomNumber(10);
         int randomIntercept = randomNumberGenerator.generateRandomNumber(20);
@@ -25,9 +27,11 @@ public class ElementaryFunctionQuestions implements Question {
 
         generatedAnswer += randomSlope;
         generatedAnswer += randomIntercept;
+        formattedAnswer += "x = " + randomSlope + ", y = " + randomIntercept;
 
         questionWithAnswer.add(writtenQuestion);
         questionWithAnswer.add(generatedAnswer);
+        questionWithAnswer.add(formattedAnswer);
 
         return questionWithAnswer;
     }

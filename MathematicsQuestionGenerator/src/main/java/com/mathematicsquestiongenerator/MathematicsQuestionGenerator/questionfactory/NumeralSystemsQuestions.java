@@ -12,6 +12,7 @@ public class NumeralSystemsQuestions implements Question {
         String writtenQuestion;
         String generatedQuestion;
         String generatedAnswer;
+        String formattedAnswer;
 
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         int questionSelection = randomNumberGenerator.generateRandomNumber(2);
@@ -19,6 +20,7 @@ public class NumeralSystemsQuestions implements Question {
         if (questionSelection == 0) {
             generatedQuestion = "";
             generatedAnswer = "";
+            formattedAnswer = "";
 
             for (int i = 0; i < 8; i++) {
                 int randomNumber = randomNumberGenerator.generateRandomNumber(2);
@@ -41,13 +43,16 @@ public class NumeralSystemsQuestions implements Question {
 
             writtenQuestion = "Convert the following Binary number " + generatedQuestion + " into denary";
             generatedAnswer += answer;
+            formattedAnswer += generatedAnswer;
 
             questionWithAnswer.add(writtenQuestion);
             questionWithAnswer.add(generatedAnswer);
+            questionWithAnswer.add(formattedAnswer);
 
         } else if (questionSelection == 1) {
             generatedQuestion = "";
             generatedAnswer = "";
+            formattedAnswer = "";
 
             int randomNumber = randomNumberGenerator.generateRandomNumber(255);
             generatedQuestion += randomNumber;
@@ -68,9 +73,11 @@ public class NumeralSystemsQuestions implements Question {
 
             writtenQuestion = "Convert the following Denary value " + generatedQuestion + " into Binary";
             generatedAnswer += answer;
+            formattedAnswer += generatedAnswer;
 
             questionWithAnswer.add(writtenQuestion);
             questionWithAnswer.add(generatedAnswer);
+            questionWithAnswer.add(formattedAnswer);
         }
 
         return questionWithAnswer;

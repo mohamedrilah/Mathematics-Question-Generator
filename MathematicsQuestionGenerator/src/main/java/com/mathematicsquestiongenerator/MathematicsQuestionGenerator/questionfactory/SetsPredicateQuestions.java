@@ -13,6 +13,7 @@ public class SetsPredicateQuestions implements Question {
         List<String> questionWithAnswer = new ArrayList<>();
         String writtenQuestion;
         String generatedAnswer;
+        String formattedAnswer;
 
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
         int questionSelection = randomNumberGenerator.generateRandomNumber(3);
@@ -20,6 +21,7 @@ public class SetsPredicateQuestions implements Question {
         if (questionSelection == 0) {
             writtenQuestion = "";
             generatedAnswer = "";
+            formattedAnswer = "";
 
             Set<Integer> setOne = new HashSet<>();
             Set<Integer> setTwo = new HashSet<>();
@@ -39,14 +41,17 @@ public class SetsPredicateQuestions implements Question {
 
             writtenQuestion = "Let Set A = " + setOne + " and Set B = " + setTwo + ". Calculate A ∪ B";
             generatedAnswer += unionSet;
+            formattedAnswer += generatedAnswer;
             generatedAnswer = generatedAnswer.replaceAll("[^\\d]", "");
 
             questionWithAnswer.add(writtenQuestion);
             questionWithAnswer.add(generatedAnswer);
+            questionWithAnswer.add(formattedAnswer);
 
         } else if (questionSelection == 1) {
             writtenQuestion = "";
             generatedAnswer = "";
+            formattedAnswer = "";
 
             Set<Integer> setOne = new HashSet<>();
             Set<Integer> setTwo = new HashSet<>();
@@ -70,15 +75,18 @@ public class SetsPredicateQuestions implements Question {
                 generatedAnswer += "0";
             } else {
                 generatedAnswer += intersectSet;
+                formattedAnswer += intersectSet;
                 generatedAnswer = generatedAnswer.replaceAll("[^\\d]", "");
             }
 
             questionWithAnswer.add(writtenQuestion);
             questionWithAnswer.add(generatedAnswer);
+            questionWithAnswer.add(formattedAnswer);
 
         } else if (questionSelection == 2) {
             writtenQuestion = "";
             generatedAnswer = "";
+            formattedAnswer = "";
 
             Set<Integer> setOne = new HashSet<>();
 
@@ -97,9 +105,11 @@ public class SetsPredicateQuestions implements Question {
 
             writtenQuestion = "Let Set A = " + setOne + ". Calculate the cardinality of A";
             generatedAnswer += setSize;
+            formattedAnswer += generatedAnswer;
 
             questionWithAnswer.add(writtenQuestion);
             questionWithAnswer.add(generatedAnswer);
+            questionWithAnswer.add(formattedAnswer);
         }
 
         return questionWithAnswer;

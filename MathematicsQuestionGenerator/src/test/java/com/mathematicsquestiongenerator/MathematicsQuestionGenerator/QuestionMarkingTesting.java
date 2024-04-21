@@ -14,8 +14,9 @@ public class QuestionMarkingTesting {
 
         int userInput = 5;
         int correctAnswer = 5;
+        String formattedAnswer = "5";
 
-        String generatedResponse = questionMarker.markQuestion(userInput, correctAnswer);
+        String generatedResponse = questionMarker.markQuestion(userInput, correctAnswer, formattedAnswer);
         String testResponse = "Well Done, the solution you submitted was the correct answer";
 
         assertEquals(testResponse, generatedResponse);
@@ -27,10 +28,12 @@ public class QuestionMarkingTesting {
 
         int userInput = 5;
         int correctAnswer = 10;
+        String formattedAnswer = "10";
 
-        String generatedResponse = questionMarker.markQuestion(userInput, correctAnswer);
+
+        String generatedResponse = questionMarker.markQuestion(userInput, correctAnswer, formattedAnswer);
         String testResponse = "Unfortunately, the solution you submitted was an incorrect answer, " +
-                "the correct answer is: " + correctAnswer;
+                "the correct answer is: " + formattedAnswer;
 
         assertEquals(testResponse, generatedResponse);
     }
